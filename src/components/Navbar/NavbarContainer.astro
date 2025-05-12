@@ -1,0 +1,56 @@
+---
+---
+
+<div
+  id="navbar-container"
+  class="sticky top-0 z-50 w-full transition-all duration-500"
+>
+  <header
+    class="backdrop-blur-xl bg-white/85 border-b border-gray-100/30 transition-all duration-500"
+  >
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-blue-100/20 via-blue-50/10 to-blue-100/20 pointer-events-none"
+    >
+    </div>
+    
+    <!-- Decorative top line with gradient -->
+    <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-300/70 via-blue-400/70 to-blue-300/70"></div>
+
+    <slot />
+  </header>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById("navbar-container");
+    let lastScrollTop = 0;
+    
+    if (navbar) {
+      // Asegurar que el navbar esté visible desde el principio
+      navbar.style.transform = "translateY(0)";
+      
+      // Manejar eventos de scroll
+      window.addEventListener("scroll", () => {
+        let currentScroll = window.pageYOffset;
+        
+        // Añadir sombra al hacer scroll
+        if (currentScroll > 20) {
+          navbar.classList.add("navbar-shadow");
+        } else {
+          navbar.classList.remove("navbar-shadow");
+        }
+        
+        // Asegurar que el navbar siempre es visible
+        navbar.style.transform = "translateY(0)";
+        
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      }, { passive: true });
+    }
+  });
+</script>
+
+<style>
+  .navbar-shadow {
+    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
+  }
+</style>

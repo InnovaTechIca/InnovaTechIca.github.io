@@ -1,31 +1,118 @@
 ---
 import '../styles/global.css';
+// Importar estilos globales de navegación
+import '../components/Navbar/styles/navbar-global.css';
 import Navbar from '../components/Navbar/Navbar.astro';
 import Footer from '../components/Footer/Footer.astro';
 import { ClientRouter } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title?: string;
+	description?: string;
+	keywords?: string;
+	image?: string;
+	canonical?: string;
+	author?: string;
+	noindex?: boolean;
 }
 
-const { title = "InnovaTech Ica - 2025" } = Astro.props;
+const { 
+	title = "InnovaTech Ica - 2025", 
+	description = "El evento tecnológico más importante de Ica en 2025. Descubre las últimas innovaciones y tendencias en tecnología.",
+	keywords = "InnovaTech, tecnología, Ica, innovación, evento tecnológico, 2025",
+	image = "/assets/LogoPrimario.jpeg",
+	canonical,
+	author = "InnovaTech Ica",
+	noindex = false
+} = Astro.props;
+
+// Construir la URL canónica
+const siteUrl = Astro.site || new URL('https://innovatech-ica.com'); // URL por defecto si Astro.site no está definido
+const canonicalURL = canonical ? canonical : new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
+		<!-- Metadatos básicos -->
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content={author} />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		
+		<!-- Canónica y robots -->
+		<link rel="canonical" href={canonicalURL} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image.startsWith('http') ? image : new URL(image, siteUrl).toString()} />
+		<meta property="og:locale" content="es_ES" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={image.startsWith('http') ? image : new URL(image, siteUrl).toString()} />
+		
+		<!-- Precargar fuentes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		
+		<!-- Soporte para transiciones Astro -->
+		<ViewTransitions />
 		<ClientRouter />
 	</head>
-	<body class="min-h-screen bg-gray-50 flex flex-col">
+	<body class="min-h-screen bg-gray-50 flex flex-col antialiased text-gray-800">
+		<!-- Skip to content for accessibility -->
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:py-2 focus:px-4 focus:bg-primary-500 focus:text-white focus:rounded">
+			Saltar al contenido principal
+		</a>
+		
 		<Navbar />
-		<main class="flex-1">
+		
+		<main id="main-content" class="flex-1">
 			<slot />
 		</main>
+		
 		<Footer />
+		
+		<!-- Script para análisis estructurado JSON-LD -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": title,
+			"description": description,
+			"startDate": "2025-05-01T09:00",
+			"endDate": "2025-05-03T18:00",
+			"location": {
+				"@type": "Place",
+				"name": "Colegio de Ingenieros - Sede Ica",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Ica",
+					"addressRegion": "Ica",
+					"addressCountry": "PE"
+				}
+			},
+			"image": [image.startsWith('http') ? image : new URL(image, siteUrl).toString()],
+			"organizer": {
+				"@type": "Organization",
+				"name": "InnovaTech Ica",
+				"url": siteUrl.toString()
+			}
+		})} />
 	</body>
 </html>

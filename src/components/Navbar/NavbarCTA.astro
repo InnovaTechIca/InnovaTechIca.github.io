@@ -1,0 +1,39 @@
+---
+interface Props {
+  text?: string;
+  href?: string;
+}
+
+const { 
+  text = "Registrarse ahora", 
+  href = "/registro" 
+} = Astro.props;
+---
+
+<div class="hidden lg:block">
+  <a
+    href={href}
+    class="group relative inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 overflow-hidden"
+  >
+    <!-- Decorative shine effect -->
+    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
+    
+    <!-- Button content with icon -->
+    <div class="relative flex items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 mr-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+        ></path>
+      </svg>
+    <span>{text}</span>
+  </a>
+</div>

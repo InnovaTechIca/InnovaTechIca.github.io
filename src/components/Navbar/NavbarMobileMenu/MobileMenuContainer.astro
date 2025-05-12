@@ -1,0 +1,33 @@
+---
+---
+
+<div
+  id="mobile-menu"
+  class="hidden lg:hidden bg-white/95 backdrop-blur-xl z-40 overflow-hidden max-h-0 transition-all duration-500 ease-in-out"
+>
+  <!-- Decorative visual elements -->
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-300/50 via-indigo-400/50 to-blue-300/50"></div>
+  
+  <div class="absolute inset-0 bg-gradient-to-b from-blue-50/30 to-white/80 pointer-events-none"></div>
+  
+  <div class="container mx-auto px-4 py-6">
+    <div class="mobile-menu-content space-y-6">
+      <slot />
+    </div>
+  </div>
+  
+  <!-- Decorative bottom elements -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-200/50 to-transparent"></div>
+</div>
+
+<style>
+  #mobile-menu.open {
+    border-top: 1px solid rgba(226, 232, 240, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  }
+  
+  .mobile-menu-content {
+    position: relative;
+    z-index: 10;
+  }
+</style>

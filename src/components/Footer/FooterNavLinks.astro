@@ -1,0 +1,58 @@
+---
+interface FooterLink {
+  name: string;
+  href: string;
+}
+
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+// Enlaces del footer, organizados por secciones
+const footerSections: FooterSection[] = [
+  {
+    title: "Navegación",
+    links: [
+      { name: "Inicio", href: "/" },
+      { name: "Cronograma", href: "/cronograma"},
+      { name: "Ponentes", href: "/ponentes" },
+      { name: "Sponsors", href: "/sponsors" },
+      { name: "Equipo", href: "/equipo"}
+    ]
+  },
+  {
+    title: "Recursos",
+    links: [
+      { name: "Registro", href: "/registro" },
+      { name: "Certificados", href: "/certificados" }
+    ]
+  },
+  {
+    title: "Legal",
+    links: [
+      { name: "Términos y Condiciones", href: "/terminos" },
+      { name: "Política de Privacidad", href: "/privacidad" }
+    ]
+  }
+];
+---
+
+{footerSections.map((section) => (
+  <div class="space-y-2">
+    <h3 class="font-semibold text-blue-800 text-lg mb-4 border-b border-blue-100 pb-2">{section.title}</h3>
+    <ul class="space-y-3">
+      {section.links.map((link) => (
+        <li>
+          <a 
+            href={link.href}
+            class="text-gray-600 hover:text-blue-600 transition-colors duration-300 flex items-center group"
+          >
+            <span class="w-1.5 h-1.5 mr-2 rounded-full bg-blue-200 group-hover:bg-blue-500 group-hover:shadow-glow transition-all duration-300"></span>
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+))}

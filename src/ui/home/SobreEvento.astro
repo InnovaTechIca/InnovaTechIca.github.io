@@ -1,162 +1,827 @@
 ---
-import { Image } from 'astro:assets';
-import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
+import { Image } from "astro:assets";
+import ColegioIngenieros from "/src/assets/colegio-ingenieros-en-Ica.jpg";
 ---
 
-<section id="sobre-evento" class="py-16 md:py-24 bg-gradient-to-br from-white via-blue-50 to-white relative overflow-hidden">  <!-- Elementos de fondo decorativos mejorados -->
+<section
+  id="sobre-evento"
+  class="py-16 md:py-24 bg-gradient-to-br from-white via-blue-50 to-white relative overflow-hidden"
+>
+  <!-- Elementos de fondo decorativos mejorados -->
   <div class="absolute inset-0 z-0 overflow-hidden">
     <!-- Círculos decorativos y gradientes -->
-    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-blue-200/40 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute bottom-1/4 -left-24 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -2s;"></div>
-    <div class="absolute top-3/4 right-1/2 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -3s;"></div>
-    
-    <!-- Líneas decorativas -->
-    <div class="hidden lg:block absolute top-20 right-0 w-1/4 h-[1.5px] bg-gradient-to-r from-transparent via-blue-300 to-blue-200"></div>
-    <div class="hidden lg:block absolute bottom-40 left-0 w-1/4 h-[1.5px] bg-gradient-to-l from-transparent via-blue-300 to-blue-200"></div>
-    <div class="hidden lg:block absolute top-1/2 left-1/4 w-[1.5px] h-24 bg-gradient-to-b from-transparent via-blue-300 to-transparent"></div>
-    
-    <!-- Puntos decorativos -->
-    <div class="hidden md:block absolute right-20 top-24 w-5 h-5 bg-blue-400 rounded-full opacity-20 animate-float"></div>
-    <div class="hidden md:block absolute left-40 bottom-16 w-7 h-7 bg-blue-500 rounded-full opacity-20 animate-float" style="animation-delay: -4s;"></div>
-    <div class="hidden md:block absolute right-1/3 bottom-1/3 w-4 h-4 bg-blue-600 rounded-full opacity-10 animate-float" style="animation-delay: -2s;"></div>
-    
-    <!-- Patrón de puntos para textura de fondo -->
-    <div class="absolute inset-0 opacity-5" 
-         style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 30px 30px;"></div>
-  </div>
-  
-  <div class="container mx-auto px-4 md:px-8 relative z-10">
-  <!-- Encabezado de sección mejorado -->
-    <div class="text-center mb-14">
-      <div class="inline-block relative mb-2">
-        <span class="text-xs md:text-sm font-medium px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full inline-block shadow-sm before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-blue-200/50 before:animate-ping before:opacity-75 before:-z-10">
-          Descubre
-        </span>
-      </div>
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 leading-tight relative inline-block">
-        InnovaTech Ica 2025
-        <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-70"></div>
-      </h2>
-      <div class="mx-auto max-w-3xl">
-        <p class="text-gray-600 text-lg md:text-xl">
-          Un evento diseñado para inspirar, conectar y transformar el futuro tecnológico de nuestra región
-        </p>
-      </div>
+    <div
+      class="absolute top-1/3 -right-24 w-80 h-80 bg-blue-200/40 rounded-full blur-3xl animate-pulse-slow"
+    >
     </div>
-    
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      <div class="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all hover:scale-[1.03] duration-500 group border border-blue-100">
-        <Image 
-          src={ColegioIngenieros}
-          alt="Colegio de Ingenieros de Ica - Sede del evento InnovaTech Ica 2025" 
-          class="w-full h-full object-cover rounded-2xl"
-          width={800}
-          height={600}
-          loading="lazy"
-        />
-        
-        <!-- Badge sobre la imagen mejorado -->
-        <div class="absolute bottom-5 left-5 z-20 bg-white/90 backdrop-blur-md rounded-xl px-4 py-3 shadow-xl border-l-4 border-blue-500 transform transition-transform group-hover:translate-y-[-5px]">
-          <p class="text-blue-800 font-semibold flex items-center text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            Colegio de Ingenieros de Ica
-          </p>
+    <div
+      class="absolute bottom-1/4 -left-24 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl animate-pulse-slow"
+      style="animation-delay: -2s;"
+    >
+    </div>
+    <div
+      class="absolute top-3/4 right-1/2 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl animate-pulse-slow"
+      style="animation-delay: -3s;"
+    >
+    </div>
+
+    <!-- Líneas decorativas -->
+    <div
+      class="hidden lg:block absolute top-20 right-0 w-1/4 h-[1.5px] bg-gradient-to-r from-transparent via-blue-300 to-blue-200"
+    >
+    </div>
+    <div
+      class="hidden lg:block absolute bottom-40 left-0 w-1/4 h-[1.5px] bg-gradient-to-l from-transparent via-blue-300 to-blue-200"
+    >
+    </div>
+    <div
+      class="hidden lg:block absolute top-1/2 left-1/4 w-[1.5px] h-24 bg-gradient-to-b from-transparent via-blue-300 to-transparent"
+    >
+    </div>
+
+    <!-- Puntos decorativos -->
+    <div
+      class="hidden md:block absolute right-20 top-24 w-5 h-5 bg-blue-400 rounded-full opacity-20 animate-float"
+    >
+    </div>
+    <div
+      class="hidden md:block absolute left-40 bottom-16 w-7 h-7 bg-blue-500 rounded-full opacity-20 animate-float"
+      style="animation-delay: -4s;"
+    >
+    </div>
+    <div
+      class="hidden md:block absolute right-1/3 bottom-1/3 w-4 h-4 bg-blue-600 rounded-full opacity-10 animate-float"
+      style="animation-delay: -2s;"
+    >
+    </div>
+
+    <!-- Patrón de puntos para textura de fondo -->
+    <div
+      class="absolute inset-0 opacity-5"
+      style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 30px 30px;"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 md:px-8 relative z-10">
+    <!-- Encabezado de sección mejorado con efectos 3D y animaciones refinadas -->
+    <div class="text-center mb-14 relative">
+      <!-- Efecto de luz de fondo -->
+      <div
+        class="absolute w-64 h-64 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/3 bg-blue-400/20 rounded-full blur-3xl"
+      >
+      </div>
+
+      <div class="inline-flex flex-col items-center relative mb-4">
+        <!-- Badge con efectos mejorados -->
+        <div
+          class="relative mb-3 transform hover:scale-105 transition-transform"
+        >
+          <!-- Efecto de pulso exterior -->
+          <div
+            class="absolute inset-0 rounded-full bg-blue-200/50 blur animate-pulse-slow"
+          >
+          </div>
+          <!-- Gradiente animated del badge -->
+          <div class="relative">
+            <span
+              class="relative px-5 py-2 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 text-blue-700 rounded-full inline-block shadow-md text-xs md:text-sm font-medium border border-blue-200/50 backdrop-blur-sm"
+            >
+              <!-- Efecto brillante animado -->
+              <div class="absolute inset-0 rounded-full overflow-hidden">
+                <div
+                  class="absolute inset-0 w-full bg-gradient-to-r from-transparent via-white/80 to-transparent animate-shimmer"
+                  style="background-size: 200% 100%"
+                >
+                </div>
+              </div>
+              <span class="relative flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-3.5 w-3.5 mr-1.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Descubre
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Título principal con efecto 3D mejorado -->
+        <h2
+          class="relative text-3xl md:text-5xl xl:text-6xl font-extrabold mb-6 leading-tight inline-block"
+        >
+          <!-- Sombra de profundidad para efecto 3D -->
+          <span
+            class="absolute -inset-0.5 blur-sm text-blue-600/30 select-none pointer-events-none"
+            >InnovaTech Ica 2025</span
+          >
+          <!-- Texto con gradiente refinado -->
+          <span
+            class="relative bg-clip-text text-transparent bg-gradient-to-br from-blue-600 via-blue-700 to-blue-500"
+            >InnovaTech Ica 2025</span
+          >
+          <!-- Línea bajo el título con animación -->
+          <div
+            class="absolute -bottom-3 left-0 right-0 h-1.5 rounded-full bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-80"
+          >
+          </div>
+          <!-- Destellos decorativos -->
+          <div
+            class="absolute -top-1 -right-1 w-3 h-3 bg-blue-300 rounded-full blur-sm opacity-70"
+          >
+          </div>
+          <div
+            class="absolute bottom-1 -left-2 w-2 h-2 bg-blue-400 rounded-full blur-sm opacity-60"
+          >
+          </div>
+        </h2>
+      </div>
+
+      <!-- Descripción con efecto de aparición -->
+      <div class="relative mx-auto max-w-3xl px-4">
+        <p class="text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed">
+          Un evento diseñado para <span class="text-blue-600 font-medium"
+            >inspirar</span
+          >, <span class="text-blue-700 font-medium">conectar</span> y <span
+            class="text-blue-800 font-medium">transformar</span
+          > el futuro tecnológico de nuestra región
+        </p>
+        <!-- Elementos decorativos -->
+        <div
+          class="absolute top-1/2 -left-4 w-8 h-px bg-gradient-to-r from-blue-500/50 to-transparent hidden md:block"
+        >
+        </div>
+        <div
+          class="absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-l from-blue-500/50 to-transparent hidden md:block"
+        >
         </div>
       </div>
-      
-      <!-- Columna de texto -->
-      <div class="space-y-6">
-        <div class="flex flex-col space-y-4">          <!-- Características del evento mejoradas -->
-          <div class="flex flex-wrap gap-3 mb-6">
-            <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border border-blue-100">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span class="font-medium">21 de junio, 2025</span>
-            </div>
-            
-            <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-green-50 to-green-100 text-green-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border border-green-100">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span class="font-medium">08:00 AM - 05:00 PM</span>
-            </div>
-            
-            <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-purple-50 to-purple-100 text-purple-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border border-purple-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              <span class="font-medium">Certificados</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Imagen mejorada con efectos 3D y elementos decorativos -->
+      <div class="relative group z-10">
+        <!-- Capa de profundidad: Sombra 3D para efecto de elevación -->
+        <div
+          class="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
+        >
+        </div>
+
+        <!-- Marco con efecto resplandor y animación -->
+        <div
+          class="relative rounded-2xl overflow-hidden shadow-[0_20px_70px_-15px_rgba(0,0,0,0.3)] border border-blue-200/30 transform transition-all duration-700 hover:scale-[1.01] hover:shadow-blue-500/20 hover:shadow-2xl bg-gradient-to-br from-white to-blue-50"
+        >
+          <!-- Esquinas decorativas -->
+          <div
+            class="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-400/70 rounded-tl-2xl z-10"
+          >
+          </div>
+          <div
+            class="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-400/70 rounded-tr-2xl z-10"
+          >
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-400/70 rounded-bl-2xl z-10"
+          >
+          </div>
+          <div
+            class="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-400/70 rounded-br-2xl z-10"
+          >
+          </div>
+
+          <!-- Resplandor en las esquinas que aparece en hover -->
+          <div
+            class="absolute top-0 left-0 w-20 h-20 bg-blue-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+          >
+          </div>
+          <div
+            class="absolute bottom-0 right-0 w-20 h-20 bg-blue-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+          >
+          </div>
+
+          <!-- Contenedor de la imagen con máscara -->
+          <div class="rounded-2xl overflow-hidden p-1">
+            <div class="relative rounded-xl overflow-hidden">
+              <!-- Capa de tono para mejorar contraste -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent mix-blend-overlay z-10"
+              >
+              </div>
+
+              <!-- Imagen con carga perezosa -->
+              <Image
+                src={ColegioIngenieros}
+                alt="Colegio de Ingenieros de Ica - Sede del evento InnovaTech Ica 2025"
+                class="w-full h-full object-cover rounded-xl transform transition-transform duration-1000 group-hover:scale-105"
+                width={900}
+                height={700}
+                loading="lazy"
+              />
+
+              <!-- Efecto de luz superior -->
+              <div
+                class="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white/10 to-transparent z-10"
+              >
+              </div>
             </div>
           </div>
-            <!-- Detalles del evento mejorados -->
-          <h3 class="text-xl md:text-2xl font-bold text-gray-800 relative inline-block">
-            ¿Qué es InnovaTech Ica?
-            <span class="absolute -left-3 top-0 bottom-0 w-1 bg-blue-500 rounded-full"></span>
-          </h3>
-          <p class="text-gray-600 text-base md:text-lg leading-relaxed mt-2">
-            InnovaTech Ica 2025 es el punto de encuentro para profesionales, estudiantes y entusiastas de la tecnología 
-            donde podrás acceder a conferencias de alto nivel, talleres prácticos y oportunidades únicas de networking.
-          </p>
-          
-          <h3 class="text-xl md:text-2xl font-bold text-gray-800 mt-6 relative inline-block">
-            Lo que encontrarás:
-            <span class="absolute -left-3 top-0 bottom-0 w-1 bg-blue-500 rounded-full"></span>
-          </h3>
-            <ul class="space-y-4 mt-3">
-            <li class="flex items-start group">
-              <div class="flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white mt-0.5 shadow-md shadow-blue-200 transform transition-transform group-hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </div>
+
+        <!-- Badge sobre la imagen con diseño mejorado -->
+        <div class="absolute -bottom-5 left-10 z-20">
+          <div class="relative group/badge">
+            <!-- Efecto de sombra animado -->
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-xl opacity-70 blur group-hover/badge:opacity-80 transition duration-1000 -z-10"
+            >
+            </div>
+
+            <!-- Contenido del badge -->
+            <div
+              class="relative flex items-center bg-white/95 backdrop-blur-md rounded-xl px-5 py-3 shadow-xl border-l-4 border-blue-500 transform transition-all duration-500 group-hover:translate-y-[-3px]"
+            >
+              <!-- Icono con animación en hover -->
+              <div
+                class="mr-3 p-2 bg-blue-50 rounded-full transform transition-all duration-500 group-hover/badge:scale-110 group-hover/badge:bg-blue-100"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
               </div>
-              <p class="ml-4 text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
-                <span class="font-semibold text-gray-900 inline-block border-b border-blue-200 pb-0.5">Conferencias magistrales</span> - Ponentes nacionales e internacionales compartiendo las últimas tendencias tecnológicas.
-              </p>
+              <div>
+                <p class="text-blue-900 font-semibold text-sm md:text-base">
+                  Colegio de Ingenieros de Ica
+                </p>
+                <p class="text-blue-600 text-xs mt-0.5">Sede del evento</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Columna de texto con diseño mejorado -->
+      <div class="space-y-7 relative">
+        <!-- Decoración de fondo sutil -->
+        <div
+          class="absolute -top-2 -right-2 w-20 h-20 bg-blue-100/50 rounded-full blur-2xl"
+        >
+        </div>
+        <div
+          class="absolute -bottom-2 -left-2 w-24 h-24 bg-blue-50/50 rounded-full blur-2xl"
+        >
+        </div>
+
+        <!-- Contenedor con efecto cristal -->
+        <div class="relative flex flex-col space-y-5 backdrop-blur-[1px]">
+          <!-- Características del evento con diseño 3D y animaciones -->
+          <div class="flex flex-wrap gap-4 mb-8">
+            <!-- Badge 1: Fecha -->
+            <div class="group">
+              <div class="relative">
+                <!-- Efecto de resplandor en hover -->
+                <div
+                  class="absolute inset-0 bg-blue-400/40 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge 2: Hora -->
+            <div class="group">
+              <div class="relative">
+                <!-- Efecto de resplandor en hover -->
+                <div
+                  class="absolute inset-0 bg-green-400/40 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+                <!-- Badge con efecto de profundidad -->
+                <div
+                  class="relative flex items-center bg-gradient-to-br from-green-50 via-white to-green-100 text-green-700 px-4 py-2.5 rounded-full shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] border border-green-100/80 transform transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-green-200/50 hover:shadow-md"
+                >
+                  <div
+                    class="mr-2 p-1.5 bg-green-100/80 rounded-full shadow-inner flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <!-- Texto con gradiente sutil -->
+                  <span
+                    class="font-semibold text-xs md:text-sm bg-gradient-to-r from-green-700 to-green-800 bg-clip-text text-transparent"
+                    >08:00 AM - 05:00 PM</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge 3: Certificados -->
+            <div class="group">
+              <div class="relative">
+                <!-- Efecto de resplandor en hover -->
+                <div
+                  class="absolute inset-0 bg-purple-400/40 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+                <!-- Badge con efecto de profundidad -->
+                <div
+                  class="relative flex items-center bg-gradient-to-br from-purple-50 via-white to-purple-100 text-purple-700 px-4 py-2.5 rounded-full shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] border border-purple-100/80 transform transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-purple-200/50 hover:shadow-md"
+                >
+                  <div
+                    class="mr-2 p-1.5 bg-purple-100/80 rounded-full shadow-inner flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-purple-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <!-- Texto con gradiente sutil -->
+                  <span
+                    class="font-semibold text-xs md:text-sm bg-gradient-to-r from-purple-700 to-purple-800 bg-clip-text text-transparent"
+                    >Certificados</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Detalles del evento con diseño mejorado y efectos modernos -->
+          <div class="relative group/titulo">
+            <!-- Decoración detrás del título -->
+            <div
+              class="absolute -left-5 -top-2 w-10 h-10 bg-blue-100/80 rounded-full blur-xl opacity-0 group-hover/titulo:opacity-100 transition-opacity duration-500"
+            >
+            </div>
+            <!-- Título con animación en hover -->
+            <h3
+              class="text-xl md:text-2xl xl:text-3xl font-bold relative inline-block"
+            >
+              <!-- Marcador lateral animado -->
+              <div
+                class="absolute -left-4 top-0 bottom-0 w-1.5 rounded-full bg-gradient-to-b from-blue-400 via-blue-500 to-blue-400 transform transition-all duration-300 group-hover/titulo:h-full group-hover/titulo:scale-y-110"
+              >
+              </div>
+              <!-- Decoración superior -->
+              <div
+                class="absolute -top-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"
+              >
+              </div>
+              <!-- Texto con gradiente -->
+              <span
+                class="bg-gradient-to-br from-gray-800 to-gray-700 bg-clip-text text-transparent py-1 px-1"
+                >¿Qué es InnovaTech Ica?</span
+              >
+            </h3>
+          </div>
+
+          <!-- Párrafo con efecto de highlight al pasar el cursor -->
+          <div class="relative mt-3 pl-2 group/parrafo">
+            <!-- Línea lateral decorativa -->
+            <div
+              class="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-blue-300 to-transparent opacity-60"
+            >
+            </div>
+            <p
+              class="text-gray-600 text-base md:text-lg leading-relaxed transform transition-all duration-300 group-hover/parrafo:translate-x-1"
+            >
+              <span class="text-blue-700 font-semibold"
+                >InnovaTech Ica 2025</span
+              > es el punto de encuentro para profesionales, estudiantes y entusiastas
+              de la tecnología donde podrás acceder a <span
+                class="relative inline-block"
+              >
+                <span
+                  class="absolute bottom-0 left-0 right-0 h-[3px] bg-blue-100 transform origin-left scale-x-0 group-hover/parrafo:scale-x-100 transition-transform duration-500"
+                ></span>
+                conferencias de alto nivel
+              </span>, talleres prácticos y oportunidades únicas de networking.
+            </p>
+          </div>
+
+          <!-- Segundo título con estilo consistente -->
+          <div class="relative group/titulo2 mt-8">
+            <!-- Decoración detrás del título -->
+            <div
+              class="absolute -left-5 -top-2 w-10 h-10 bg-blue-100/80 rounded-full blur-xl opacity-0 group-hover/titulo2:opacity-100 transition-opacity duration-500"
+            >
+            </div>
+            <!-- Título con animación en hover -->
+            <h3
+              class="text-xl md:text-2xl xl:text-3xl font-bold relative inline-block"
+            >
+              <!-- Marcador lateral animado -->
+              <div
+                class="absolute -left-4 top-0 bottom-0 w-1.5 rounded-full bg-gradient-to-b from-blue-400 via-blue-500 to-blue-400 transform transition-all duration-300 group-hover/titulo2:h-full group-hover/titulo2:scale-y-110"
+              >
+              </div>
+              <!-- Decoración superior -->
+              <div
+                class="absolute -top-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"
+              >
+              </div>
+              <!-- Texto con gradiente -->
+              <span
+                class="bg-gradient-to-br from-gray-800 to-gray-700 bg-clip-text text-transparent py-1 px-1"
+                >Lo que encontrarás:</span
+              >
+            </h3>
+          </div>
+
+          <!-- Lista con elementos interactivos mejorados -->
+          <ul class="space-y-5 mt-4 relative">
+            <!-- Línea conectora vertical -->
+            <div
+              class="absolute left-3.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-300 to-blue-100"
+            >
+            </div>
+
+            <!-- Item de la lista mejorado -->
+            <li class="relative flex items-start group/item">
+              <!-- Icono con efectos -->
+              <div class="relative flex-shrink-0 z-10">
+                <!-- Resplandor detrás del ícono en hover -->
+                <div
+                  class="absolute inset-0 bg-blue-400 rounded-full opacity-0 blur-md group-hover/item:opacity-70 transition-opacity duration-300"
+                >
+                </div>
+                <!-- Fondo con gradiente animado -->
+                <div
+                  class="relative h-8 w-8 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-300/30 transform transition-all duration-500 group-hover/item:scale-110 group-hover/item:rotate-3"
+                >
+                  <!-- Círculo interior decorativo -->
+                  <div
+                    class="absolute inset-1 rounded-full border-2 border-white/20"
+                  >
+                  </div>
+                  <!-- Icono -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Contenido del item con efectos hover -->
+              <div
+                class="ml-5 relative transform transition-all duration-300 group-hover/item:translate-x-1"
+              >
+                <!-- Línea decorativa superior -->
+                <div
+                  class="absolute -top-1 left-0 right-0 h-px bg-gradient-to-r from-blue-200 to-transparent opacity-0 group-hover/item:opacity-100 transition-all duration-500"
+                >
+                </div>
+
+                <!-- Texto con efectos -->
+                <p
+                  class="text-gray-600 leading-relaxed group-hover/item:text-gray-800 transition-colors"
+                >
+                  <span
+                    class="relative font-semibold text-gray-800 inline-block"
+                  >
+                    <!-- Subrayado animado -->
+                    <span
+                      class="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-300 transform origin-left scale-x-0 group-hover/item:scale-x-100 transition-transform duration-500"
+                    ></span>
+                    Conferencias magistrales
+                  </span>
+                  - Ponentes nacionales e internacionales compartiendo las últimas
+                  tendencias tecnológicas.
+                </p>
+
+                <!-- Línea decorativa inferior -->
+                <div
+                  class="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-blue-200 to-transparent opacity-0 group-hover/item:opacity-100 transition-all duration-500"
+                >
+                </div>
+              </div>
             </li>
           </ul>
-            <!-- Botón de acción mejorado -->
-          <div class="mt-8">
-            <a href="/registro" class="inline-flex items-center px-7 py-3.5 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-700 hover:via-blue-800 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all hover:scale-105 relative overflow-hidden group">
-              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 opacity-0 group-hover:opacity-20 transform group-hover:translate-y-0 group-hover:translate-x-0 translate-y-10 translate-x-10 transition-all duration-500"></span>
-              <span class="relative z-10 flex items-center">
-                Reserva tu lugar ahora
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </a>
+          <!-- Botón de acción con efectos 3D modernos y animaciones llamativas -->
+          <div class="mt-10 relative">
+            <!-- Decoración del botón -->
+            <div
+              class="absolute -inset-4 bg-blue-400/20 filter blur-xl rounded-full opacity-0 animate-pulse-slow"
+            >
+            </div>
+
+            <!-- Botón con múltiples efectos -->
+            <div class="relative group/btn">
+
+              <!-- Botón principal -->
+              <a
+                href="/registro"
+                class="relative inline-flex items-center px-8 py-4 rounded-xl shadow-[0_10px_20px_-10px_rgba(30,64,175,0.6)] text-white bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 font-medium text-lg overflow-hidden transform transition-all duration-500 hover:scale-[1.03] active:scale-[0.97] hover:shadow-[0_15px_25px_-12px_rgba(30,64,175,0.8)]"
+              >
+
+                <!-- Efecto de brillo que se mueve -->
+                <div
+                  class="absolute inset-0 w-full h-full bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent)] -translate-x-full group-hover/btn:translate-x-full transition-all duration-1000"
+                >
+                </div>
+
+                <!-- Contenido del botón -->
+                <span
+                  class="relative z-10 flex items-center font-semibold mr-1"
+                >
+                  <!-- Icono decorativo -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2.5 text-blue-100"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+
+                  Reserva tu lugar ahora
+                </span>
+
+                <!-- Flecha con animación -->
+                <span
+                  class="relative z-10 flex items-center ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <!-- Decoración adicional debajo del botón -->
+            <div
+              class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-5 bg-blue-700/20 filter blur-md rounded-full"
+            >
+            </div>
           </div>
         </div>
       </div>
     </div>
-      <!-- Estadísticas mejoradas -->
+    <!-- Estadísticas mejoradas con diseño 3D y efectos avanzados -->
     <div class="grid grid-cols-2 md:grid-cols-2 gap-8 mt-20 relative">
-      <div class="text-center bg-gradient-to-b from-white to-blue-50 p-6 rounded-2xl shadow-xl border border-blue-100 transform transition-transform hover:scale-[1.02] hover:shadow-2xl">
-        <div class="inline-flex justify-center items-center w-14 h-14 mb-4 rounded-full bg-blue-100 text-blue-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
+      <!-- Efecto decorativo de líneas conectoras entre estadísticas -->
+      <div class="absolute inset-0 z-0 hidden md:block">
+        <div
+          class="absolute top-1/2 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-blue-100 via-blue-300 to-blue-100 transform -translate-y-1/2"
+        >
         </div>
-        <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">5</div>
-        <div class="text-gray-700 text-base md:text-lg font-medium mt-2">Ponentes</div>
-      </div>
-      
-      <div class="text-center bg-gradient-to-b from-white to-blue-50 p-6 rounded-2xl shadow-xl border border-blue-100 transform transition-transform hover:scale-[1.02] hover:shadow-2xl">
-        <div class="inline-flex justify-center items-center w-14 h-14 mb-4 rounded-full bg-blue-100 text-blue-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+        <div
+          class="absolute top-1/3 bottom-1/3 left-1/2 w-0.5 bg-gradient-to-b from-blue-100 via-blue-300 to-blue-100 transform -translate-x-1/2"
+        >
         </div>
-        <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">8</div>
-        <div class="text-gray-700 text-base md:text-lg font-medium mt-2">Horas de contenido</div>
       </div>
-      
-      <!-- Elemento decorativo entre los cuadros -->
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rotate-45 bg-white shadow-lg rounded-md hidden md:block"></div>
+
+      <div
+        class="text-center relative z-10 p-1 transform transition-all duration-500 hover:scale-[1.03]"
+      >
+        <div class="relative group">
+          <!-- Efecto de brillo en hover -->
+          <div
+            class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-60 transition duration-500 group-hover:duration-200"
+          >
+          </div>
+          <!-- Tarjeta principal con efecto 3D -->
+          <div
+            class="relative bg-gradient-to-b from-white via-white to-blue-50 p-7 rounded-2xl shadow-[0_20px_70px_-15px_rgba(59,130,246,0.25)] border border-blue-100/90 backdrop-blur-sm h-full"
+          >
+            <!-- Icono flotante con efecto de sombra -->
+            <div
+              class="relative inline-flex justify-center items-center w-16 h-16 mb-5 transform hover:scale-110 transition-transform duration-300"
+            >
+              <!-- Sombra decorativa bajo el icono -->
+              <div
+                class="absolute -bottom-2 inset-x-0 h-2 bg-blue-600/20 blur-md rounded-full"
+              >
+              </div>
+              <!-- Fondo del icono con gradiente animado -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full animate-pulse-subtle"
+              >
+              </div>
+              <!-- Círculo pequeño decorativo -->
+              <div
+                class="absolute h-2 w-2 bg-blue-400 rounded-full top-1 right-1"
+              >
+              </div>
+              <!-- Icono -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-9 w-9 text-blue-600 relative z-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <div class="relative">
+              <!-- Número con efecto 3D de texto -->
+              <div
+                class="text-6xl md:text-7xl font-extrabold bg-gradient-to-br from-blue-600 via-blue-700 to-blue-500 bg-clip-text text-transparent drop-shadow-sm mb-1 tracking-tight"
+              >
+                5
+              </div>
+              <!-- Línea decorativa -->
+              <div
+                class="h-1 w-12 mx-auto rounded-full bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-3"
+              >
+              </div>
+              <!-- Etiqueta con efecto hover -->
+              <div
+                class="text-gray-700 font-semibold text-base md:text-lg transition-colors group-hover:text-blue-700"
+              >
+                Ponentes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="text-center relative z-10 p-1 transform transition-all duration-500 hover:scale-[1.03]"
+      >
+        <div class="relative group">
+          <!-- Efecto de brillo en hover -->
+          <div
+            class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-60 transition duration-500 group-hover:duration-200"
+          >
+          </div>
+          <!-- Tarjeta principal con efecto 3D -->
+          <div
+            class="relative bg-gradient-to-b from-white via-white to-blue-50 p-7 rounded-2xl shadow-[0_20px_70px_-15px_rgba(59,130,246,0.25)] border border-blue-100/90 backdrop-blur-sm h-full"
+          >
+            <!-- Icono flotante con efecto de sombra -->
+            <div
+              class="relative inline-flex justify-center items-center w-16 h-16 mb-5 transform hover:scale-110 transition-transform duration-300"
+            >
+              <!-- Sombra decorativa bajo el icono -->
+              <div
+                class="absolute -bottom-2 inset-x-0 h-2 bg-blue-600/20 blur-md rounded-full"
+              >
+              </div>
+              <!-- Fondo del icono con gradiente animado -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full animate-pulse-subtle"
+              >
+              </div>
+              <!-- Círculo pequeño decorativo -->
+              <div
+                class="absolute h-2 w-2 bg-blue-400 rounded-full top-1 right-1"
+              >
+              </div>
+              <!-- Icono -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-9 w-9 text-blue-600 relative z-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="relative">
+              <!-- Número con efecto 3D de texto -->
+              <div
+                class="text-6xl md:text-7xl font-extrabold bg-gradient-to-br from-blue-600 via-blue-700 to-blue-500 bg-clip-text text-transparent drop-shadow-sm mb-1 tracking-tight"
+              >
+                8
+              </div>
+              <!-- Línea decorativa -->
+              <div
+                class="h-1 w-12 mx-auto rounded-full bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-3"
+              >
+              </div>
+              <!-- Etiqueta con efecto hover -->
+              <div
+                class="text-gray-700 font-semibold text-base md:text-lg transition-colors group-hover:text-blue-700"
+              >
+                Horas de contenido
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elemento decorativo central mejorado -->
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block"
+      >
+        <div class="relative w-16 h-16">
+          <!-- Efecto de brillo -->
+          <div
+            class="absolute inset-0 bg-blue-400 rounded-md blur-md opacity-20 animate-pulse-slow"
+          >
+          </div>
+          <!-- Elemento rotativo con bordes brillantes -->
+          <div
+            class="absolute inset-0 bg-white rounded-md shadow-lg rotate-45 overflow-hidden border border-blue-100"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"
+            >
+            </div>
+            <!-- Líneas decorativas internas -->
+            <div
+              class="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"
+            >
+            </div>
+            <div
+              class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-500/40 to-transparent"
+            >
+            </div>
+            <!-- Puntos en las esquinas -->
+            <div class="absolute top-1 left-1 w-1 h-1 bg-blue-500 rounded-full">
+            </div>
+            <div
+              class="absolute top-1 right-1 w-1 h-1 bg-blue-400 rounded-full"
+            >
+            </div>
+            <div
+              class="absolute bottom-1 left-1 w-1 h-1 bg-blue-400 rounded-full"
+            >
+            </div>
+            <div
+              class="absolute bottom-1 right-1 w-1 h-1 bg-blue-500 rounded-full"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -167,7 +832,7 @@ import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
   .shadow-2xl {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  
+
   @keyframes float {
     0% {
       transform: translateY(0px);
@@ -179,21 +844,92 @@ import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
       transform: translateY(0px);
     }
   }
-  
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.8;
     }
     50% {
       opacity: 0.4;
     }
   }
-  
+
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes float-subtle {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes gradient-x {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
+  .animate-float-subtle {
+    animation: float-subtle 4s ease-in-out infinite;
+  }
+
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+  }
+
+  .animate-rotate {
+    animation: rotating 10s linear infinite;
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+    background-size: 200% 200%;
   }
 </style>

@@ -1,62 +1,8 @@
 ---
-import NavLinks from "./NavLinks.astro";
-
-// Importamos los componentes optimizados
-import NavbarContainer from "./NavbarContainer.astro";
-import NavbarLogo from "./NavbarLogo.astro";
-import NavbarMobileButton from "./NavbarMobileButton.astro";
-import NavbarDesktopLinks from "./NavbarDesktopLinks.astro";
-import NavbarCTA from "./NavbarCTA.astro";
-
-// Importamos componentes del menú móvil
-import MobileMenuContainer from "./NavbarMobileMenu/MobileMenuContainer.astro";
-import MobileMenuHeader from "./NavbarMobileMenu/MobileMenuHeader.astro";
-import MobileMenuCTA from "./NavbarMobileMenu/MobileMenuCTA.astro";
-import MobileMenuScript from "./NavbarMobileMenu/MobileMenuScript.astro";
 ---
-
-<NavbarContainer>
-  <nav class="container mx-auto px-4 py-2 relative">
-    <div class="flex items-center justify-between">
-      <!-- Logo with shine effect -->
-      <div class="relative">
-        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-blue-600/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <NavbarLogo />
-      </div>
-
-      <!-- Desktop Navigation with enhanced visual elements -->
-      <div class="hidden lg:flex items-center bg-white/30 backdrop-filter backdrop-blur-lg px-3 py-1.5 rounded-full border border-blue-100/40 shadow-sm">
-        <NavbarDesktopLinks />
-      </div>
-
-      <!-- Mobile Menu Button with improved visual -->
-      <div class="lg:hidden">
-        <NavbarMobileButton />
-      </div>
-
-      <!-- Call to action button with enhanced styling -->
-      <NavbarCTA />
-    </div>
-  </nav>
-
-  <!-- Mobile menu con subcomponentes -->
-  <MobileMenuContainer>
-    <MobileMenuHeader title="Menú" />
-    <NavLinks isMobile={true} />
-    <MobileMenuCTA 
-      text="¡Regístrate Ahora!" 
-      href="/registro" 
-      ctaText="No te pierdas esta oportunidad única" 
-    />
-  </MobileMenuContainer>
-</NavbarContainer>
-
-<!-- Scripts para el menú móvil -->
-<MobileMenuScript />
 
 <script is:inline>
   // Push-content mobile menu implementation
-  // This script will run directly in the browser
   (function () {
     // Function to initialize mobile menu
     function initMobileMenu() {
@@ -76,13 +22,10 @@ import MobileMenuScript from "./NavbarMobileMenu/MobileMenuScript.astro";
         setTimeout(initMobileMenu, 200);
         return;
       }
+      
       let menuOpen = false;
       let menuHeight = 0; // Will store menu height when open
       let scrollPos = 0;
-      let lastScrollTop = 0;
-
-      // Asegurarse de que el navbar esté visible desde el principio
-      navbar.style.transform = "translateY(0)";
 
       // Save the original hamburger icon
       const hamburgerIcon = menuButton.innerHTML;
@@ -119,12 +62,14 @@ import MobileMenuScript from "./NavbarMobileMenu/MobileMenuScript.astro";
 
         return height;
       }
+      
       // Calculate viewport height and adjust for content
       function getAvailableHeight() {
         const viewportHeight = window.innerHeight;
         const headerHeight = 70; // Header height in pixels
         return viewportHeight - headerHeight;
       }
+      
       // Function to open the menu with smooth animation
       function openMenu() {
         // Get available height
@@ -252,28 +197,6 @@ import MobileMenuScript from "./NavbarMobileMenu/MobileMenuScript.astro";
           mobileMenu.style.maxHeight = finalHeight + "px";
         }
       });
-      // Handle scroll events to add shadow effect only
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (menuOpen) return; // Don't perform actions when menu is open
-
-          let currentScroll = window.pageYOffset;
-
-          // Add shadow when scrolling down
-          if (currentScroll > 20) {
-            navbar.classList.add("navbar-shadow");
-          } else {
-            navbar.classList.remove("navbar-shadow");
-          }
-
-          // Always ensure navbar is visible
-          navbar.style.transform = "translateY(0)";
-
-          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        },
-        { passive: true }
-      );
 
       console.log("Push-content mobile menu initialized successfully");
     }
@@ -290,3 +213,27 @@ import MobileMenuScript from "./NavbarMobileMenu/MobileMenuScript.astro";
     window.addEventListener("load", initMobileMenu);
   })();
 </script>
+
+<style is:global>
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  body.bg-transition::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 30;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  body.menu-open.bg-transition::before {
+    opacity: 1;
+  }
+</style>

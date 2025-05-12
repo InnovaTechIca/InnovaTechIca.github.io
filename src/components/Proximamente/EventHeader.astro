@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  date?: string;
+}
+
+const { title, subtitle = "InnovaTech Ica 2025", date = "21 de Junio, 2025" } = Astro.props;
+---
+
+<div class="text-center mb-8">
+  <h1 class="text-4xl md:text-6xl font-bold mb-4 text-blue-600 animate-fade-in">
+    {title}
+  </h1>
+  
+  <p class="text-xl md:text-2xl font-semibold mb-6 text-gray-700">
+    {subtitle} - <span class="text-blue-500">{date}</span>
+  </p>
+</div>

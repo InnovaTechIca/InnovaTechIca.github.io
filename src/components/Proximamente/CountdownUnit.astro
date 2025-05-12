@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  unit: string;
+}
+
+const { label = "--", value, unit } = Astro.props;
+---
+
+<div class="bg-blue-600 text-white rounded-lg p-4 shadow-md transform hover:scale-105 transition-transform duration-200">
+  <span class="text-3xl font-bold block">{label}</span>
+  <span class="text-sm font-medium">{unit}</span>
+</div>
