@@ -1,0 +1,352 @@
+---
+interface NavItem {
+  name: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { name: "Inicio", href: "/" },
+  { name: "Cronograma", href: "/cronograma"},
+  { name: "Ponentes", href: "/ponentes" },
+  { name: "Sponsors", href: "/sponsors" },
+  { name: "Equipo", href: "/equipo"}
+];
+
+interface Props {
+  isMobile?: boolean;
+}
+
+const { isMobile = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const isActive = (href: string) => {
+  if (href === "/" && currentPath === "/") return true;
+  if (href !== "/" && currentPath.startsWith(href)) return true;
+  return false;
+};
+---
+
+<style>
+  /* Animaciones de entrada */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeScale {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+    }
+    70% {
+      box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Clases de animación */
+  .reveal {
+    animation: fadeScale 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .nav-item {
+    opacity: 0;
+    animation: slideInUp 0.5s forwards;
+  }
+  
+  .mobile-nav-item {
+    opacity: 0;
+    animation: fadeScale 0.4s ease-out forwards;
+  }
+  
+  /* Efectos de hover y transiciones */
+  .nav-link {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+  
+  /* Efecto de brillo mejorado */
+  .hover-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg, 
+      rgba(255,255,255,0) 0%, 
+      rgba(255,255,255,0.1) 50%, 
+      rgba(255,255,255,0) 100%
+    );
+    z-index: 1;
+    transition: all 0.8s;
+  }
+  
+  .hover-glow:hover::before {
+    left: 100%;
+  }
+  
+  /* Efecto de movimiento del gradiente */
+  .active-gradient {
+    background: linear-gradient(120deg, #1e40af, #3b82f6, #60a5fa, #3b82f6);
+    background-size: 300% 100%;
+    animation: gradientMove 8s ease infinite;
+  }
+  
+  /* Efecto para pulse */
+  .pulse-indicator {
+    animation: pulseGlow 2s infinite;
+  }
+
+  /* Configuración de delays para entradas escalonadas */
+  .nav-items > *:nth-child(1) { animation-delay: 100ms; }
+  .nav-items > *:nth-child(2) { animation-delay: 150ms; }
+  .nav-items > *:nth-child(3) { animation-delay: 200ms; }
+  .nav-items > *:nth-child(4) { animation-delay: 250ms; }
+  .nav-items > *:nth-child(5) { animation-delay: 300ms; }
+</style>
+
+<script>
+  // Efecto de seguimiento del ratón para los elementos de navegación
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    const navItems = document.querySelectorAll('.interactive-nav-item');
+    
+    navItems.forEach(item => {
+      const shine = item.querySelector('.shine-effect') as HTMLElement;
+      
+      if (shine) {
+        item.addEventListener('mousemove', ((e: MouseEvent) => {
+          const { left, top, width, height } = item.getBoundingClientRect();
+          const x = (e.clientX - left) / width;
+          const y = (e.clientY - top) / height;
+          
+          shine.style.setProperty('--mouse-x', `${x * 100}%`);
+          shine.style.setProperty('--mouse-y', `${y * 100}%`);
+        }) as EventListener);
+      }
+    });
+  });
+</script>
+
+{
+  isMobile ? (
+    <div class="relative py-4">
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/20 via-blue-400/20 to-blue-600/20"></div>
+      <ul class="space-y-2.5 py-3 nav-items">
+        {navItems.map((item, index) => {
+          const active = isActive(item.href);
+          return (
+            <li class="mobile-nav-item overflow-hidden">
+              <a
+                href={item.href}
+                class={`group nav-link hover-glow flex items-center px-4 py-4 rounded-2xl transition-all duration-500 relative ${
+                  active 
+                  ? "bg-gradient-to-r from-blue-600/10 via-blue-500/10 to-blue-600/10 text-blue-700 font-medium shadow-sm" 
+                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 hover:shadow-sm"
+                }`}
+              >
+                {/* Fondo con efecto de glassmorphism */}
+                <div class={`absolute inset-0 backdrop-blur-[1px] rounded-2xl ${
+                  active ? "bg-white/40" : "bg-white/0 group-hover:bg-white/30"
+                } transition-all duration-500`}></div>
+                
+                {/* Contenedor del icono con efectos */}
+                <div class={`flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden relative z-10 mr-4 
+                  ${active 
+                    ? "active-gradient text-white shadow-lg shadow-blue-300/30" 
+                    : "bg-white shadow-sm group-hover:shadow-md group-hover:shadow-blue-100/50"
+                  } transition-all duration-300`}>
+                  <div class={`absolute inset-0 ${!active && "opacity-0 group-hover:opacity-100"} bg-gradient-to-br from-blue-500/5 to-blue-600/5 transition-opacity duration-300`}></div>
+                  
+                  <svg class={`w-5 h-5 ${
+                    active 
+                      ? "text-white" 
+                      : "text-blue-500/80 group-hover:text-blue-600"
+                    } transition-all duration-500 relative z-10`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                    stroke-width={active ? "2.2" : "2"}>
+                    {item.name === "Inicio" && (
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    )}
+                    {item.name === "Cronograma" && (
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    )}
+                    {item.name === "Ponentes" && (
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    )}
+                    {item.name === "Sponsors" && (
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                    {item.name === "Equipo" && (
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    )}
+                  </svg>
+                </div>
+                
+                {/* Contenido central */}
+                <div class="flex flex-col flex-grow z-10 pr-2">
+                  <span class={`font-medium text-[15px] ${
+                    active 
+                    ? "text-blue-700" 
+                    : "text-gray-700 group-hover:text-blue-600"
+                  } transition-all duration-300`}>
+                    {item.name}
+                  </span>
+                  <span class={`text-xs ${
+                    active ? "text-blue-500/80" : "text-gray-400 group-hover:text-blue-400/80"
+                  } transition-all duration-300`}>
+                    {item.name === "Inicio" && "Página principal"}
+                    {item.name === "Cronograma" && "Calendario de eventos"}
+                    {item.name === "Ponentes" && "Conoce a nuestros expertos"}
+                    {item.name === "Sponsors" && "Nuestros patrocinadores"}
+                    {item.name === "Equipo" && "Quiénes somos"}
+                  </span>
+                </div>
+                
+                {/* Indicador de página activa */}
+                <div class={`w-8 flex justify-end items-center z-10 ${active ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}>
+                  <div class="w-2 h-2 rounded-full bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.5)] pulse-indicator"></div>
+                </div>
+                
+                {/* Borde con degradado */}
+                <div class={`absolute inset-0 rounded-2xl border ${
+                  active 
+                  ? "border-blue-200/60" 
+                  : "border-transparent group-hover:border-blue-100/50"
+                } transition-all duration-500`}></div>
+                
+                {/* Efecto de destello al pasar el mouse */}
+                <div class="shine-effect absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 
+                  bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(59,130,246,0.08)_0%,rgba(255,255,255,0)_60%)]">
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/20 via-blue-400/20 to-blue-600/20"></div>
+    </div>
+  ) : (    <div class="hidden lg:block">
+      <div class="relative flex items-center">
+        {/* Línea decorativa izquierda */}
+        <div class="w-10 h-px bg-gradient-to-r from-transparent to-blue-200/80 mr-3"></div>
+        
+        <div class="bg-white/30 backdrop-blur-sm rounded-2xl p-1.5 shadow-lg shadow-blue-100/20 border border-blue-50/50">
+          <ul class="flex items-center space-x-1 nav-items">
+            {navItems.map((item, index) => {
+              const active = isActive(item.href);
+              return (
+                <li class="nav-item">
+                  <a
+                    href={item.href}
+                    class={`group nav-link interactive-nav-item flex items-center px-3 py-2 rounded-xl relative transition-all duration-300 ${
+                      active 
+                      ? "bg-gradient-to-br from-blue-500/10 to-blue-600/5 text-blue-700" 
+                      : "text-gray-600 hover:text-blue-600"
+                    }`}
+                  >
+                    {/* Fondo con glassmorphism */}
+                    <div class={`absolute inset-0 rounded-xl ${
+                      active 
+                        ? "bg-white/70 shadow-[0_0_15px_rgba(59,130,246,0.2)] border border-blue-200/50" 
+                        : "bg-transparent group-hover:bg-white/50 group-hover:shadow-sm border border-transparent group-hover:border-blue-100/30"
+                      } transition-all duration-300`}></div>
+                    
+                    {/* Icono con efectos */}
+                    <div class={`relative flex items-center justify-center w-7 h-7 mr-2 z-10 overflow-hidden rounded-lg ${
+                      active 
+                        ? "active-gradient shadow-md shadow-blue-200/40" 
+                        : "bg-blue-50/50 group-hover:bg-blue-100/50 group-hover:shadow-sm"
+                      } transition-all duration-500`}>
+                      {!active && (
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/10 to-blue-600/20 transition-opacity duration-300"></div>
+                      )}
+                      <svg class={`w-4 h-4 ${
+                        active 
+                          ? "text-white" 
+                          : "text-blue-500/80 group-hover:text-blue-600"
+                        } transition-all duration-300 relative z-10`} 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        {item.name === "Inicio" && (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        )}
+                        {item.name === "Cronograma" && (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        )}
+                        {item.name === "Ponentes" && (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        )}
+                        {item.name === "Sponsors" && (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        )}
+                        {item.name === "Equipo" && (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        )}
+                      </svg>
+                    </div>
+                    
+                    {/* Texto e indicadores */}
+                    <span class={`text-sm font-medium tracking-wide z-10 ${active ? "text-blue-700" : "group-hover:text-blue-600"} transition-all duration-300`}>
+                      {item.name}
+                    </span>
+                    
+                    {/* Indicador de posición actual */}
+                    {active && (
+                      <div class="ml-2 w-1.5 h-1.5 rounded-full bg-blue-600 shadow-[0_0_6px_rgba(37,99,235,0.6)] pulse-indicator"></div>
+                    )}
+                    
+                    {/* Efecto de movimiento del degradado al hacer hover */}
+                    <div class="shine-effect absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-700
+                      bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(59,130,246,0.12)_0%,rgba(255,255,255,0)_50%)]">
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        
+        {/* Línea decorativa derecha */}
+        <div class="w-10 h-px bg-gradient-to-l from-transparent to-blue-200/80 ml-3"></div>
+      </div>
+    </div>
+  )
+}

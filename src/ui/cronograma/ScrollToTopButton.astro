@@ -1,0 +1,42 @@
+---
+// Componente para botón de "Volver arriba"
+---
+
+<button id="scrollToTopBtn" class="fixed bottom-8 right-8 z-50 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full shadow-2xl opacity-0 transition-all duration-300 hover:shadow-blue-400/20 transform translate-y-10 scale-90 flex items-center gap-2 backdrop-blur-sm border border-blue-400/20 group">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+  </svg>
+  <span class="font-medium text-sm pr-1">Volver arriba</span>
+</button>
+
+<script>
+  // Lógica mejorada para mostrar/ocultar el botón según el scroll
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  
+  window.addEventListener("scroll", () => {
+    if (scrollToTopBtn) {
+      if (window.scrollY > 400) {
+        scrollToTopBtn.classList.remove("opacity-0", "translate-y-10", "scale-90");
+        scrollToTopBtn.classList.add("opacity-100", "translate-y-0", "scale-100");
+      } else {
+        scrollToTopBtn.classList.remove("opacity-100", "translate-y-0", "scale-100");
+        scrollToTopBtn.classList.add("opacity-0", "translate-y-10", "scale-90");
+      }
+    }
+  });
+  
+  // Acción de scroll suave hacia arriba con efecto visual
+  scrollToTopBtn?.addEventListener("click", () => {
+    // Añadir clase para efecto de pulsación
+    scrollToTopBtn.classList.add("scale-95");
+    setTimeout(() => {
+      scrollToTopBtn.classList.remove("scale-95");
+    }, 200);
+    
+    // Hacer el scroll
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>

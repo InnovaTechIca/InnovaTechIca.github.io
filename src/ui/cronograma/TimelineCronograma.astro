@@ -1,0 +1,75 @@
+---
+import { eventosCronograma } from '../../data/cronograma';
+import EventoCard from './EventoCard.astro';
+---
+
+<div class="relative">
+  <!-- Línea conectora para timeline mejorada -->
+  <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-2 bg-gradient-to-b from-blue-200 via-blue-500 to-blue-200 transform -translate-x-1/2 z-0 rounded-full shadow-md" style="box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);">
+    <!-- Pequeños marcadores en la línea para indicar el paso del tiempo -->
+    <div class="absolute inset-0 flex flex-col justify-between">
+      {Array(8).fill(0).map((_, i) => (
+        <div class="w-4 h-1 bg-white rounded-full shadow-sm transform -translate-x-1"></div>
+      ))}
+    </div>
+  </div>
+  
+  <!-- Marcador de tiempo actual mejorado -->
+  <div class="sticky top-24 z-30 flex justify-center">
+    <div class="animate-pulse bg-gradient-to-r from-blue-600 to-blue-500 backdrop-blur-sm rounded-full px-5 py-2 shadow-xl text-sm font-bold text-white flex items-center">
+      <div class="p-1 bg-white/20 rounded-full mr-2 backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      Estás aquí
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0 relative">
+    {eventosCronograma.map((evento, index) => {
+      const isPast = new Date(`2025-06-21T${evento.hora.replace(' a.m.', 'am').replace(' p.m.', 'pm')}`) < new Date();
+      
+      // Calcula si el evento es más largo que el promedio para darle énfasis
+      const isLongEvent = evento.duracion > 45;
+      
+      return (
+        <div class={`${index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'} relative`}>
+          <!-- Línea conectora mejorada - línea con efecto degradado -->
+          <div class={`hidden md:block absolute top-1/2 h-0.5 w-8 -translate-y-1/2 
+              ${index % 2 === 0 
+                ? 'right-0 translate-x-6 bg-gradient-to-r from-transparent to-blue-500' 
+                : 'left-0 -translate-x-8 bg-gradient-to-l from-transparent to-blue-500'}`}></div>
+          
+          <!-- Marca temporal en la línea -->
+          <div class="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100 shadow-sm">
+            {evento.hora}
+          </div>
+          
+          <!-- Eventos alternados para mejor visualización -->
+          <div class={`${index % 2 === 0 ? 'pr-12' : 'pl-12'} ${isLongEvent ? 'transform scale-105' : ''}`}>
+            <EventoCard 
+              evento={evento} 
+              isPast={isPast} 
+              isAlternate={index % 2 !== 0} 
+            />
+          </div>
+        </div>
+      );
+    })}
+  </div>
+  
+  <!-- Marcador de fin de la línea de tiempo -->
+  <div class="flex flex-col items-center mt-10">
+    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center shadow-lg">
+      <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+    </div>
+    <div class="mt-3 px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
+      <p class="font-medium text-blue-700">¡Fin del evento!</p>
+    </div>
+  </div>
+</div>

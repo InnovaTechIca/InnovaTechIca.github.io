@@ -1,0 +1,103 @@
+---
+// Componente para mostrar la información de un ponente en forma de tarjeta
+import RedesSociales from "./RedesSociales.astro";
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  id: string;
+  nombre: string;
+  cargo: string;
+  empresa: string;
+  foto: ImageMetadata;
+  temaCharla: string;
+  redesSociales: {
+    linkedin?: string;
+    twitter?: string;
+    github?: string;
+    website?: string;
+  };
+}
+
+const { id, nombre, cargo, empresa, foto, temaCharla, redesSociales } = Astro.props;
+---
+
+<a href={`/ponentes/${id}`} class="group">
+  <article class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:translate-y-[-8px] h-full flex flex-col border border-gray-100 relative ponente-card hover:border-blue-200" style="transform-style: preserve-3d;">    <div class="relative overflow-hidden aspect-[3/4] sm:aspect-[4/3] lg:aspect-[3/4]">
+      <Image 
+        src={foto} 
+        alt={`Foto de ${nombre}`} 
+        class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110" 
+        transition:name={`imagen-${id}`}
+        loading="lazy"
+        width={300}
+        height={400}
+      />
+      <div class="absolute inset-0 opacity-80 group-hover:opacity-90 transition-all duration-300">
+        <div class="absolute top-4 left-4 flex flex-col gap-2">
+          <div class="bg-white/90 backdrop-blur-sm rounded-full px-4 py-1 text-xs font-medium text-blue-800 shadow-sm transform transition-transform duration-300 group-hover:translate-y-1">
+            {empresa}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="p-6 flex-grow flex flex-col justify-between relative">
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">{nombre}</h3>
+        <p class="text-gray-600 font-medium text-sm mb-4">{cargo}</p>
+        
+        <div class="relative pl-4 border-l-2 border-blue-600 mb-4 group-hover:border-blue-500 transition-colors">
+          <p class="text-gray-700 italic text-sm line-clamp-2 group-hover:line-clamp-none transition-all duration-300">"{temaCharla}"</p>
+        </div>
+        
+        <div class="mt-3">
+          <RedesSociales redesSociales={redesSociales} />
+        </div>
+      </div>
+      
+      <div class="mt-5 flex justify-end relative overflow-hidden">
+        <span class="font-medium text-sm text-blue-700 hover:text-blue-900 inline-flex items-center transition-all duration-300 group-hover:translate-x-0 translate-x-5 opacity-0 group-hover:opacity-100">
+          Ver perfil
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- Efecto decorativo esquina -->
+    <div class="absolute top-0 right-0 h-20 w-20 transform translate-x-10 -translate-y-10 rotate-45 bg-blue-500/20 group-hover:bg-blue-500/30 transition-all duration-500"></div>
+    <div class="absolute bottom-0 left-0 h-16 w-16 transform -translate-x-8 translate-y-8 rotate-45 bg-blue-500/10 group-hover:bg-blue-500/20 transition-all duration-500"></div>
+  </article>
+</a>
+
+<style>
+  .ponente-card {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+  }
+  
+  .ponente-card:hover {
+    box-shadow: 0 20px 35px -5px rgba(30, 64, 175, 0.15);
+  }
+  
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-down {
+    animation: fade-down 0.3s ease-out forwards;
+  }
+  
+  .animate-duration-300 {
+    animation-duration: 300ms;
+  }
+</style>

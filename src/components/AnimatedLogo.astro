@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import SoloLogo from '/src/assets/SoloLogo.jpeg';
+
+interface Props {
+  loading?: "eager" | "lazy";
+}
+
+const { loading = "lazy" } = Astro.props;
+---
+
+<div class="logo-container">
+  <a href="/" class="group flex items-center space-x-3 transition-transform duration-300 transform hover:scale-105">
+    <div class="logo-image-container overflow-hidden rounded-lg relative">
+      <div class="logo-glow absolute inset-0 bg-blue-400 opacity-0 blur-md transition-opacity duration-700 group-hover:opacity-20"></div>
+      <Image
+        src={SoloLogo}
+        alt="InnovaTech Ica 2025"
+        class="h-11 w-auto z-10 relative transition-all duration-500 hover:brightness-110"
+        loading={loading}
+      />
+    </div>
+    <div class="flex flex-col">
+      <span class="logo-text font-bold text-xl text-blue-600 group-hover:text-blue-700 transition-all duration-300">
+        <span class="text-highlight">I</span>nnova<span class="text-highlight">T</span>ech
+      </span>
+      <span class="logo-subtext text-xs text-gray-600 -mt-1 group-hover:text-blue-500 transition-colors duration-300">
+        Ica 2025
+      </span>
+    </div>
+  </a>
+</div>

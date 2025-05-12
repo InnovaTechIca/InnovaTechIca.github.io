@@ -1,0 +1,317 @@
+---
+import NavLinks from "./NavLinks.astro";
+import MobileMenu from "./MobileMenu.astro";
+import AnimatedLogo from "../AnimatedLogo.astro";
+---
+
+<div
+  id="navbar-container"
+  class="sticky top-0 z-50 w-full transition-transform duration-300"
+>
+  <header
+    class="backdrop-blur-md bg-white/80 shadow-lg border-b border-gray-100/80 transition-all duration-300"
+  >
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-transparent to-blue-50/30 pointer-events-none"
+    >
+    </div>
+
+    <nav class="container mx-auto px-4 py-3 relative">
+      <div class="flex items-center justify-between">
+        <!-- Animated Logo Component -->
+        <AnimatedLogo loading="eager" />
+
+        <!-- Mobile Menu Button - Only visible on mobile -->
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden rounded-full p-3 hover:bg-blue-50/70 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-blue-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <NavLinks />
+        </div>
+
+        <!-- Call to action button - visible on desktop -->
+        <div class="hidden lg:block">
+          <a
+            href="/registro"
+            class="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-600 text-white font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+              ></path>
+            </svg>
+            <span>Registrarse ahora</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Mobile menu - Will push content -->
+    <MobileMenu />
+  </header>
+</div>
+
+<script is:inline>
+  // Push-content mobile menu implementation
+  // This script will run directly in the browser
+  (function () {
+    // Function to initialize mobile menu
+    function initMobileMenu() {
+      const menuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mainContent = document.querySelector("main");
+      const navbar = document.getElementById("navbar-container");
+
+      console.log("Push-content mobile menu init...", {
+        menuButton: !!menuButton,
+        mobileMenu: !!mobileMenu,
+        mainContent: !!mainContent,
+      });
+
+      if (!menuButton || !mobileMenu) {
+        console.error("Menu elements not found, retrying...");
+        setTimeout(initMobileMenu, 200);
+        return;
+      }
+      let menuOpen = false;
+      let menuHeight = 0; // Will store menu height when open
+      let scrollPos = 0;
+      let lastScrollTop = 0;
+
+      // Asegurarse de que el navbar esté visible desde el principio
+      navbar.style.transform = "translateY(0)";
+
+      // Save the original hamburger icon
+      const hamburgerIcon = menuButton.innerHTML;
+
+      // Create close icon
+      const closeIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      `;
+
+      // Calculate the content height of the menu
+      function calculateMenuHeight() {
+        // Temporarily make menu visible to calculate height
+        const originalDisplay = mobileMenu.style.display;
+        const originalMaxHeight = mobileMenu.style.maxHeight;
+        const originalOpacity = mobileMenu.style.opacity;
+        const originalVisibility = mobileMenu.style.visibility;
+
+        mobileMenu.style.display = "block";
+        mobileMenu.style.maxHeight = "none";
+        mobileMenu.style.opacity = "0";
+        mobileMenu.style.visibility = "hidden";
+        mobileMenu.classList.remove("hidden");
+
+        const height = mobileMenu.scrollHeight;
+
+        // Restore original states
+        mobileMenu.style.display = originalDisplay;
+        mobileMenu.style.maxHeight = originalMaxHeight;
+        mobileMenu.style.opacity = originalOpacity;
+        mobileMenu.style.visibility = originalVisibility;
+        if (!menuOpen) mobileMenu.classList.add("hidden");
+
+        return height;
+      }
+      // Calculate viewport height and adjust for content
+      function getAvailableHeight() {
+        const viewportHeight = window.innerHeight;
+        const headerHeight = 70; // Header height in pixels
+        return viewportHeight - headerHeight;
+      }
+      // Function to open the menu with smooth animation
+      function openMenu() {
+        // Get available height
+        const availableHeight = getAvailableHeight();
+
+        // Calculate menu height if not done already
+        if (menuHeight === 0) {
+          menuHeight = calculateMenuHeight();
+        }
+
+        // Use the smaller of calculated height or available height
+        const finalHeight = Math.min(menuHeight, availableHeight);
+
+        // First remove hidden to make the menu visible
+        mobileMenu.classList.remove("hidden");
+
+        // Use requestAnimationFrame to ensure proper transition
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            mobileMenu.classList.add("open");
+            mobileMenu.style.maxHeight = finalHeight + "px";
+
+            // Add subtle bounce effect to the main content
+            if (mainContent) {
+              mainContent.style.transition =
+                "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
+              mainContent.style.transform = "translateY(5px)";
+              setTimeout(() => {
+                mainContent.style.transform = "translateY(0)";
+              }, 400);
+            }
+
+            // Add subtle background dimming effect
+            document.body.classList.add("bg-transition");
+          });
+        });
+
+        // Prevent body scrolling
+        scrollPos = window.pageYOffset;
+        document.body.style.overflow = "hidden";
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPos}px`;
+        document.body.style.width = "100%";
+        document.body.classList.add("menu-open");
+
+        // Change button appearance with animation
+        menuButton.style.transform = "rotate(90deg)";
+        setTimeout(() => {
+          menuButton.innerHTML = closeIcon;
+          menuButton.style.transform = "rotate(0)";
+        }, 150);
+
+        menuButton.setAttribute("aria-label", "Cerrar menú");
+        menuButton.setAttribute("aria-expanded", "true");
+        menuOpen = true;
+        console.log("Menu opened with height:", finalHeight);
+      }
+
+      // Function to close the menu with smooth animation
+      function closeMenu() {
+        mobileMenu.classList.remove("open");
+        mobileMenu.style.maxHeight = "0px";
+
+        // Small animation for the button
+        menuButton.style.transform = "rotate(-90deg)";
+        setTimeout(() => {
+          menuButton.innerHTML = hamburgerIcon;
+          menuButton.style.transform = "rotate(0)";
+        }, 150);
+
+        // Re-enable body scrolling
+        document.body.style.removeProperty("overflow");
+        document.body.style.removeProperty("position");
+        document.body.style.removeProperty("top");
+        document.body.style.removeProperty("width");
+        window.scrollTo(0, scrollPos);
+        document.body.classList.remove("menu-open");
+        document.body.classList.remove("bg-transition");
+
+        // Add hidden class after transition completes
+        setTimeout(() => {
+          if (!menuOpen) {
+            mobileMenu.classList.add("hidden");
+          }
+        }, 500); // Match the transition duration in CSS
+
+        menuButton.innerHTML = hamburgerIcon;
+        menuButton.setAttribute("aria-label", "Abrir menú");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuOpen = false;
+        console.log("Menu closed");
+      }
+
+      // Toggle menu function
+      function toggleMenu(e) {
+        e.preventDefault();
+        console.log("Toggle menu called");
+
+        if (menuOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
+
+      // Add click event listener to menu button
+      menuButton.addEventListener("click", toggleMenu);
+
+      // Close menu when clicking links
+      const links = mobileMenu.querySelectorAll("a");
+      links.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      // Handle window resize events
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024 && menuOpen) {
+          // Close menu in desktop mode
+          closeMenu();
+        } else if (menuOpen) {
+          // In mobile mode, adjust height based on viewport
+          const availableHeight = getAvailableHeight();
+          menuHeight = calculateMenuHeight();
+          const finalHeight = Math.min(menuHeight, availableHeight);
+          mobileMenu.style.maxHeight = finalHeight + "px";
+        }
+      });
+      // Handle scroll events to add shadow effect only
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (menuOpen) return; // Don't perform actions when menu is open
+
+          let currentScroll = window.pageYOffset;
+
+          // Add shadow when scrolling down
+          if (currentScroll > 20) {
+            navbar.classList.add("navbar-shadow");
+          } else {
+            navbar.classList.remove("navbar-shadow");
+          }
+
+          // Always ensure navbar is visible
+          navbar.style.transform = "translateY(0)";
+
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        },
+        { passive: true }
+      );
+
+      console.log("Push-content mobile menu initialized successfully");
+    }
+
+    // Try to initialize immediately
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initMobileMenu);
+    } else {
+      // DOM already ready, run init
+      initMobileMenu();
+    }
+
+    // Backup initialization on window load
+    window.addEventListener("load", initMobileMenu);
+  })();
+</script>

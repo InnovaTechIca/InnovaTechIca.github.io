@@ -1,0 +1,264 @@
+---
+import CountdownTimer from './CountdownTimer.astro';
+import HeroText from './HeroText.astro';
+import ActionButtons from './ActionButtons.astro';
+import { Image } from 'astro:assets';
+import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
+---
+
+<section class="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 md:py-24">
+  <!-- Fondo decorativo mejorado -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 mix-blend-multiply"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -left-48 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-sky-200/30 rounded-full blur-3xl"></div>
+    
+    <!-- Patrón de círculos decorativos -->
+    <div class="hidden md:block absolute right-10 top-10 w-6 h-6 bg-blue-400 rounded-full opacity-20"></div>
+    <div class="hidden md:block absolute right-32 top-20 w-4 h-4 bg-blue-500 rounded-full opacity-20"></div>
+    <div class="hidden md:block absolute left-20 bottom-32 w-8 h-8 bg-sky-400 rounded-full opacity-20"></div>
+    
+    <!-- Líneas decorativas -->
+    <div class="hidden md:block absolute top-1/3 right-0 w-1/3 h-px bg-gradient-to-r from-transparent to-blue-200"></div>
+    <div class="hidden md:block absolute bottom-1/3 left-0 w-1/3 h-px bg-gradient-to-l from-transparent to-blue-200"></div>
+  </div>
+
+  <div class="container mx-auto px-4 md:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
+      <!-- Texto y botones de acción -->
+      <div class="lg:col-span-7 space-y-8">
+        <HeroText />
+        
+        <!-- Badges -->
+        <div class="flex flex-wrap gap-4 my-6">
+          <div class="flex items-center text-xs md:text-sm bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Evento de 9 horas</span>
+          </div>
+          
+          <div class="flex items-center text-xs md:text-sm bg-green-50 text-green-700 px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span>5 Ponentes</span>
+          </div>
+          
+          <div class="flex items-center text-xs md:text-sm bg-yellow-50 text-yellow-700 px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>Certificados disponibles</span>
+          </div>
+        </div>
+        
+        <ActionButtons />
+
+        <!-- Certificados - Nuevo elemento -->
+        <div class="mt-8 bg-gradient-to-r from-blue-50 to-blue-50 p-4 rounded-lg border border-blue-100 shadow-sm">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 mt-1">
+              <div class="bg-blue-100 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800">Certificados Oficiales</h3>
+              <p class="text-sm text-gray-600 mt-1">Obtén certificados avalados por el Colegio de Ingenieros para validar tu participación en el evento.</p>
+              <a href="/certificados" class="inline-flex items-center mt-2 text-sm font-medium text-blue-600 hover:text-blue-800">
+                <span>Comprar certificado</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- Imagen o gráfico lateral con contador -->
+      <div class="hidden lg:block lg:col-span-5">
+        <div class="relative transform perspective-1000 hover:-rotate-1 transition-all duration-700 group">
+          <!-- Efectos de fondo decorativos -->
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl transform rotate-2 scale-[1.03] -z-10 shadow-xl opacity-20 group-hover:scale-[1.05] transition-transform duration-700"></div>
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-700"></div>
+          
+          <div class="relative bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-0 backdrop-blur-sm border border-white/50 overflow-hidden">
+            
+            <!-- Imagen mejorada con efecto de overlay y textura -->
+            <div class="relative group/image overflow-hidden">
+              <!-- Overlay decorativo superior -->
+              <div class="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-transparent z-10 opacity-40 mix-blend-overlay"></div>
+              
+              <!-- Textura sutil -->
+              <div class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%270 0 2000 1500%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cdefs%3E%3Cpattern id=%27a%27 patternUnits=%27userSpaceOnUse%27 width=%2720%27 height=%2720%27 patternTransform=%27scale(50) rotate(0)%27%3E%3Crect x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27 fill=%27%23ffffff%27/%3E%3Ccircle cx=%2710%27 cy=%2710%27 r=%272%27 fill=%27%23f7fafc%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23a)%27/%3E%3C/svg%3E')] opacity-10 z-10 mix-blend-overlay"></div>
+              
+              <!-- Imagen con efectos hover -->
+              <div class="relative overflow-hidden h-[300px]">
+                <Image 
+                  src={ColegioIngenieros} 
+                  alt="Colegio de Ingenieros de Ica" 
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-[1.03]"
+                  loading="eager"
+                />
+                
+                <!-- Brillo superior -->
+                <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-50"></div>
+                
+                <!-- Destellos angulares decorativos -->
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-400/20 rotate-45 transform origin-bottom-right"></div>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-400/20 rotate-45 transform origin-top-left"></div>
+                
+                <!-- Viñeta sutil en las esquinas -->
+                <div class="absolute inset-0 bg-radial-at-tr from-transparent via-transparent to-black/20 opacity-70"></div>
+              </div>
+            </div>
+            
+            <!-- Card con contador con mejor contraste -->
+            <div class="p-6 bg-white/90">
+              <h3 class="font-semibold text-center text-gray-800 mb-4">Faltan para el evento</h3>
+              <CountdownTimer targetDate="June 21, 2025" />
+            </div>
+              <!-- Información del evento con mejor diseño -->
+            <div class="mt-6 relative overflow-hidden group/info">
+              <!-- Efecto de borde brillante animado -->
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 rounded-lg opacity-30 blur-sm group-hover/info:opacity-50 transition-opacity duration-300"></div>
+              
+              <div class="relative bg-white bg-opacity-90 p-5 rounded-lg border border-blue-100/70 backdrop-blur-sm">
+                <div class="flex flex-col space-y-3">
+                  <!-- Fecha del evento con icono mejorado -->
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-700 rounded-md mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-xs text-gray-500 font-medium">Fecha</div>
+                      <div class="text-sm text-gray-800 font-semibold">21 de junio, 2025</div>
+                    </div>
+                  </div>
+                  
+                  <!-- Horario del evento con icono mejorado -->
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-700 rounded-md mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-xs text-gray-500 font-medium">Horario</div>
+                      <div class="text-sm text-gray-800 font-semibold">08:00 - 17:00</div>
+                    </div>
+                  </div>
+                  
+                  <!-- Lugar del evento con icono de ubicación -->
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-700 rounded-md mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-xs text-gray-500 font-medium">Ubicación</div>
+                      <div class="text-sm text-gray-800 font-semibold">Colegio de Ingenieros de Ica</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Contador para móvil con diseño mejorado -->
+    <div class="lg:hidden mt-12 relative overflow-hidden">
+      <!-- Efectos de fondo decorativos para móvil -->
+      <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-xl opacity-20 blur-lg"></div>
+      
+      <!-- Contenedor principal -->
+      <div class="relative bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-lg p-0 border border-blue-100/50 overflow-hidden">
+        <!-- Badge de evento destacado -->
+        <div class="absolute top-0 right-0 -mt-3 -mr-3 z-10">
+          <div class="bg-gradient-to-r from-blue-600 to-blue-600 text-white text-xs font-bold rounded-full py-1 px-3 shadow-lg animate-pulse">
+            Evento Destacado
+          </div>
+        </div>
+        
+        <!-- Imagen para móvil con mejores efectos visuales -->
+        <div class="relative overflow-hidden h-[180px]">
+          <Image 
+            src={ColegioIngenieros} 
+            alt="Colegio de Ingenieros de Ica" 
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+          
+          <!-- Overlay y textura para móvil -->
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-transparent z-10 opacity-40 mix-blend-overlay"></div>
+          <div class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%270 0 2000 1500%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cdefs%3E%3Cpattern id=%27a%27 patternUnits=%27userSpaceOnUse%27 width=%2720%27 height=%2720%27 patternTransform=%27scale(50) rotate(0)%27%3E%3Crect x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27 fill=%27%23ffffff%27/%3E%3Ccircle cx=%2710%27 cy=%2710%27 r=%272%27 fill=%27%23f7fafc%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23a)%27/%3E%3C/svg%3E')] opacity-10 z-10 mix-blend-overlay"></div>
+          
+          <!-- Viñeta sutil en las esquinas -->
+          <div class="absolute inset-0 bg-radial-at-tr from-transparent via-transparent to-black/20 opacity-70"></div>
+        </div>
+        
+        <!-- Card con contador para móvil -->
+        <div class="p-6 bg-white/90">
+          <h3 class="font-semibold text-center text-gray-800 mb-4">Faltan para el evento</h3>
+          <CountdownTimer targetDate="June 21, 2025" />
+        <!-- Información del evento en móvil con mejor diseño -->
+      <div class="mt-6 relative overflow-hidden">
+        <!-- Efecto de borde brillante -->
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 rounded-lg opacity-30 blur-sm"></div>
+        
+        <div class="relative bg-white bg-opacity-90 p-4 rounded-lg border border-blue-100/70 backdrop-blur-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <!-- Fecha del evento con icono mejorado -->
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-700 rounded-md mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 font-medium">Fecha</div>
+                <div class="text-sm text-gray-800 font-semibold">21 de junio, 2025</div>
+              </div>
+            </div>
+            
+            <!-- Horario del evento con icono mejorado -->
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-700 rounded-md mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 font-medium">Horario</div>
+                <div class="text-sm text-gray-800 font-semibold">09:00 - 17:00</div>
+              </div>
+            </div>
+            
+            <!-- Lugar del evento con icono de ubicación -->
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-700 rounded-md mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 font-medium">Ubicación</div>
+                <div class="text-sm text-gray-800 font-semibold">Colegio de Ingenieros</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

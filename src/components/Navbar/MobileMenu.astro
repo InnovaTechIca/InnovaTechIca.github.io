@@ -1,0 +1,65 @@
+---
+import NavLinks from "./NavLinks.astro";
+---
+
+<div
+  id="mobile-menu"
+  class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl z-40 overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+>
+  <div class="container mx-auto px-4 py-6">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-bold text-blue-700 flex items-center">
+            <span class="mr-2 bg-blue-100 rounded-full p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </span>
+            Navegación
+          </h3>
+          <div class="h-[2px] flex-grow ml-4 bg-gradient-to-r from-blue-500 to-transparent section-divider"></div>
+        </div>
+      </div>
+    
+    <NavLinks isMobile={true} />    <div class="mt-10 pb-4">
+      <div class="flex items-center mb-4">
+        <div class="h-[2px] flex-grow mr-4 bg-gradient-to-l from-blue-500 to-transparent section-divider"></div>
+        <h3 class="text-lg font-bold text-blue-700 flex items-center">
+          <span class="mr-2 bg-blue-100 rounded-full p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+            </svg>
+          </span>
+          ¡Únete al evento!
+        </h3>
+      </div>
+      
+      <a
+        href="/registro"
+        class="mobile-cta group flex items-center justify-center w-full px-6 py-4 mt-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-center rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+      >
+        <div class="flex items-center justify-center">
+          <span class="relative mr-2 bg-white/20 rounded-full p-2 group-hover:bg-white/30 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            </svg>
+          </span>
+          <span class="text-lg relative">¡Regístrate Ahora!</span>
+          <span class="absolute right-6 group-hover:translate-x-2 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </span>
+        </div>
+      </a>
+      
+      <div class="text-center mt-4 text-gray-500 text-sm flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        No te pierdas esta oportunidad única
+      </div>
+    </div>
+  </div>
+</div>

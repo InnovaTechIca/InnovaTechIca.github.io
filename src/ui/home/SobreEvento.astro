@@ -1,0 +1,199 @@
+---
+import { Image } from 'astro:assets';
+import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
+---
+
+<section id="sobre-evento" class="py-16 md:py-24 bg-gradient-to-br from-white via-blue-50 to-white relative overflow-hidden">  <!-- Elementos de fondo decorativos mejorados -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <!-- Círculos decorativos y gradientes -->
+    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-blue-200/40 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 -left-24 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -2s;"></div>
+    <div class="absolute top-3/4 right-1/2 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -3s;"></div>
+    
+    <!-- Líneas decorativas -->
+    <div class="hidden lg:block absolute top-20 right-0 w-1/4 h-[1.5px] bg-gradient-to-r from-transparent via-blue-300 to-blue-200"></div>
+    <div class="hidden lg:block absolute bottom-40 left-0 w-1/4 h-[1.5px] bg-gradient-to-l from-transparent via-blue-300 to-blue-200"></div>
+    <div class="hidden lg:block absolute top-1/2 left-1/4 w-[1.5px] h-24 bg-gradient-to-b from-transparent via-blue-300 to-transparent"></div>
+    
+    <!-- Puntos decorativos -->
+    <div class="hidden md:block absolute right-20 top-24 w-5 h-5 bg-blue-400 rounded-full opacity-20 animate-float"></div>
+    <div class="hidden md:block absolute left-40 bottom-16 w-7 h-7 bg-blue-500 rounded-full opacity-20 animate-float" style="animation-delay: -4s;"></div>
+    <div class="hidden md:block absolute right-1/3 bottom-1/3 w-4 h-4 bg-blue-600 rounded-full opacity-10 animate-float" style="animation-delay: -2s;"></div>
+    
+    <!-- Patrón de puntos para textura de fondo -->
+    <div class="absolute inset-0 opacity-5" 
+         style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 30px 30px;"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 md:px-8 relative z-10">
+  <!-- Encabezado de sección mejorado -->
+    <div class="text-center mb-14">
+      <div class="inline-block relative mb-2">
+        <span class="text-xs md:text-sm font-medium px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full inline-block shadow-sm before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-blue-200/50 before:animate-ping before:opacity-75 before:-z-10">
+          Descubre
+        </span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 leading-tight relative inline-block">
+        InnovaTech Ica 2025
+        <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-70"></div>
+      </h2>
+      <div class="mx-auto max-w-3xl">
+        <p class="text-gray-600 text-lg md:text-xl">
+          Un evento diseñado para inspirar, conectar y transformar el futuro tecnológico de nuestra región
+        </p>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all hover:scale-[1.03] duration-500 group border border-blue-100">
+        <Image 
+          src={ColegioIngenieros}
+          alt="Colegio de Ingenieros de Ica - Sede del evento InnovaTech Ica 2025" 
+          class="w-full h-full object-cover rounded-2xl"
+          width={800}
+          height={600}
+          loading="lazy"
+        />
+        
+        <!-- Badge sobre la imagen mejorado -->
+        <div class="absolute bottom-5 left-5 z-20 bg-white/90 backdrop-blur-md rounded-xl px-4 py-3 shadow-xl border-l-4 border-blue-500 transform transition-transform group-hover:translate-y-[-5px]">
+          <p class="text-blue-800 font-semibold flex items-center text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Colegio de Ingenieros de Ica
+          </p>
+        </div>
+      </div>
+      
+      <!-- Columna de texto -->
+      <div class="space-y-6">
+        <div class="flex flex-col space-y-4">          <!-- Características del evento mejoradas -->
+          <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border border-blue-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="font-medium">21 de junio, 2025</span>
+            </div>
+            
+            <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-green-50 to-green-100 text-green-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border border-green-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="font-medium">08:00 AM - 05:00 PM</span>
+            </div>
+            
+            <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-purple-50 to-purple-100 text-purple-700 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow border border-purple-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              <span class="font-medium">Certificados</span>
+            </div>
+          </div>
+            <!-- Detalles del evento mejorados -->
+          <h3 class="text-xl md:text-2xl font-bold text-gray-800 relative inline-block">
+            ¿Qué es InnovaTech Ica?
+            <span class="absolute -left-3 top-0 bottom-0 w-1 bg-blue-500 rounded-full"></span>
+          </h3>
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed mt-2">
+            InnovaTech Ica 2025 es el punto de encuentro para profesionales, estudiantes y entusiastas de la tecnología 
+            donde podrás acceder a conferencias de alto nivel, talleres prácticos y oportunidades únicas de networking.
+          </p>
+          
+          <h3 class="text-xl md:text-2xl font-bold text-gray-800 mt-6 relative inline-block">
+            Lo que encontrarás:
+            <span class="absolute -left-3 top-0 bottom-0 w-1 bg-blue-500 rounded-full"></span>
+          </h3>
+            <ul class="space-y-4 mt-3">
+            <li class="flex items-start group">
+              <div class="flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white mt-0.5 shadow-md shadow-blue-200 transform transition-transform group-hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p class="ml-4 text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
+                <span class="font-semibold text-gray-900 inline-block border-b border-blue-200 pb-0.5">Conferencias magistrales</span> - Ponentes nacionales e internacionales compartiendo las últimas tendencias tecnológicas.
+              </p>
+            </li>
+          </ul>
+            <!-- Botón de acción mejorado -->
+          <div class="mt-8">
+            <a href="/registro" class="inline-flex items-center px-7 py-3.5 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:from-blue-700 hover:via-blue-800 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all hover:scale-105 relative overflow-hidden group">
+              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 opacity-0 group-hover:opacity-20 transform group-hover:translate-y-0 group-hover:translate-x-0 translate-y-10 translate-x-10 transition-all duration-500"></span>
+              <span class="relative z-10 flex items-center">
+                Reserva tu lugar ahora
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Estadísticas mejoradas -->
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-8 mt-20 relative">
+      <div class="text-center bg-gradient-to-b from-white to-blue-50 p-6 rounded-2xl shadow-xl border border-blue-100 transform transition-transform hover:scale-[1.02] hover:shadow-2xl">
+        <div class="inline-flex justify-center items-center w-14 h-14 mb-4 rounded-full bg-blue-100 text-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">5</div>
+        <div class="text-gray-700 text-base md:text-lg font-medium mt-2">Ponentes</div>
+      </div>
+      
+      <div class="text-center bg-gradient-to-b from-white to-blue-50 p-6 rounded-2xl shadow-xl border border-blue-100 transform transition-transform hover:scale-[1.02] hover:shadow-2xl">
+        <div class="inline-flex justify-center items-center w-14 h-14 mb-4 rounded-full bg-blue-100 text-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">8</div>
+        <div class="text-gray-700 text-base md:text-lg font-medium mt-2">Horas de contenido</div>
+      </div>
+      
+      <!-- Elemento decorativo entre los cuadros -->
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rotate-45 bg-white shadow-lg rounded-md hidden md:block"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones mejoradas para elementos interactivos */
+  .shadow-xl,
+  .shadow-2xl {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
