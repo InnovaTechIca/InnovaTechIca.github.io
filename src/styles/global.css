@@ -1,6 +1,4 @@
 @import "tailwindcss";
-/* Importar archivo de animaciones */
-@import './animations.css';
 
 /* Animación de fade in para elementos */
 @keyframes fadeIn {
