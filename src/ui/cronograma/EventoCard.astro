@@ -3,67 +3,66 @@ import type { EventoCronograma } from '../../data/cronograma';
 
 interface Props {
   evento: EventoCronograma;
-  isPast?: boolean;
   isAlternate?: boolean;
 }
 
-const { evento, isPast = false, isAlternate = false } = Astro.props;
-const props = { isPast, isAlternate };
+const { evento, isAlternate = false } = Astro.props;
+const props = { isAlternate };
 
 // Función para determinar el color y el icono según el tipo de evento
 const getEventoStyles = (tipo: EventoCronograma['tipo']) => {
   switch (tipo) {
     case 'ponencia':
       return {
-        bgColor: 'bg-gradient-to-r from-blue-600 to-blue-500',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
         textColor: 'text-white'
       };
     case 'break':
       return {
-        bgColor: 'bg-gradient-to-r from-teal-500 to-teal-400',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
         textColor: 'text-white'
       };
     case 'sorteo':
       return {
-        bgColor: 'bg-gradient-to-r from-purple-600 to-purple-500',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z',
         textColor: 'text-white'
       };
     case 'inauguracion':
       return {
-        bgColor: 'bg-gradient-to-r from-amber-600 to-amber-500',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
         textColor: 'text-white'
       };
     case 'clausura':
       return {
-        bgColor: 'bg-gradient-to-r from-red-600 to-red-500',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
         textColor: 'text-white'
       };
     case 'foto':
       return {
-        bgColor: 'bg-gradient-to-r from-blue-500 to-sky-400',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z M15 13a3 3 0 11-6 0 3 3 0 016 0z',
         textColor: 'text-white'
       };
     case 'recibimiento':
       return {
-        bgColor: 'bg-gradient-to-r from-green-600 to-green-500',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z',
         textColor: 'text-white'
       };
     case 'almuerzo':
       return {
-        bgColor: 'bg-gradient-to-r from-orange-500 to-orange-400',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
         textColor: 'text-white'
       };
     default:
       return {
-        bgColor: 'bg-gradient-to-r from-gray-700 to-gray-600',
+        bgColor: 'bg-gradient-to-r from-blue-700 to-blue-600',
         iconPath: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
         textColor: 'text-white'
       };
@@ -74,14 +73,10 @@ const { bgColor, iconPath, textColor } = getEventoStyles(evento.tipo);
 ---
 
 <div class="evento-card-wrapper relative mb-12 animate-fade-in">
-  <!-- Diseño mejorado del evento con efecto 3D sutil -->
-  <div class={`evento-card group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 
-              ${props.isPast ? 'opacity-80 hover:opacity-95' : 'transform hover:scale-[1.03] hover:shadow-xl'} 
-              backdrop-blur-sm`} style="transform-style: preserve-3d;">
     
     <!-- Efecto de borde brillante -->
-    <div class={`absolute inset-0 rounded-3xl z-0 opacity-50 blur-xs ${props.isPast ? 'bg-gradient-to-r from-gray-300 to-gray-200' : bgColor}`}></div>
-    
+    <div class={`absolute inset-0 rounded-3xl z-0 opacity-50 blur-xs ${props.isAlternate ? 'bg-gradient-to-r from-gray-300 to-gray-200' : bgColor}`}></div>
+
     <!-- Cabecera con hora rediseñada -->
     <div class={`${bgColor} p-6 flex items-center justify-between ${textColor} relative z-10 rounded-t-3xl border-b border-white/10`}>
       <h3 class="text-xl font-semibold flex items-center">
@@ -128,22 +123,6 @@ const { bgColor, iconPath, textColor } = getEventoStyles(evento.tipo);
     
     <!-- Efecto de brillo en hover mejorado -->
     <div class="absolute inset-0 z-20 bg-gradient-to-tr from-white/0 via-white/30 to-white/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1500 rounded-3xl"></div>
-    
-    <!-- Indicador de estado (actual, pasado o futuro) -->
-    {props.isPast ? 
-      <div class="absolute top-3 right-3 bg-white/90 text-gray-600 text-xs px-3 py-1 rounded-full shadow-md border border-gray-200 z-30 flex items-center gap-1">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        Completado
-      </div>
-      :
-      <div class="absolute -top-2 -right-2 z-30 transform rotate-12 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div class="bg-yellow-400 text-yellow-800 text-xs px-3 py-1 rounded-lg font-bold shadow-lg">
-          ¡No te lo pierdas!
-        </div>
-      </div>
-    }
   </div>
   
   <!-- Línea conectora para efecto timeline mejorado -->

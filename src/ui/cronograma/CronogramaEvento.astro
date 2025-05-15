@@ -2,7 +2,6 @@
 import TimelineCronograma from "./TimelineCronograma.astro";
 import Leyenda from "./Leyenda.astro";
 import EventosList from "./EventosList.astro";
-import ViewSelector from "./ViewSelector.astro";
 import ScrollToTopButton from "./ScrollToTopButton.astro";
 import { infoEvento } from "../../data/cronograma";
 
@@ -204,8 +203,6 @@ const diasRestantes = Math.ceil(
   <div class="gap-6 mb-8">
     <Leyenda />
   </div>
-  <!-- Control para cambio de vista -->
-  <ViewSelector />
 
   <!-- Timeline de eventos mejorado con efectos -->
   <div

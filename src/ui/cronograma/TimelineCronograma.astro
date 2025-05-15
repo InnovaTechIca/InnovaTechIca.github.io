@@ -49,8 +49,7 @@ import EventoCard from './EventoCard.astro';
           <!-- Eventos alternados para mejor visualización -->
           <div class={`${index % 2 === 0 ? 'pr-12' : 'pl-12'} ${isLongEvent ? 'transform scale-105' : ''}`}>
             <EventoCard 
-              evento={evento} 
-              isPast={isPast} 
+              evento={evento}
               isAlternate={index % 2 !== 0} 
             />
           </div>
@@ -61,14 +60,14 @@ import EventoCard from './EventoCard.astro';
   
   <!-- Marcador de fin de la línea de tiempo -->
   <div class="flex flex-col items-center mt-10">
-    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center shadow-lg">
+    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center shadow-lg z-10">
       <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
       </div>
     </div>
-    <div class="mt-3 px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
+    <div class="mt-3 px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 shadow-sm z-10">
       <p class="font-medium text-blue-700">¡Fin del evento!</p>
     </div>
   </div>
