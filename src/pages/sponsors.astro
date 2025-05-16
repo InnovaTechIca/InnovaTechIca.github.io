@@ -1,11 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Proximamente from '../components/Proximamente.astro';
+import SponsorsHeader from '../ui/sponsors/SponsorsHeader.astro';
+import SponsorsList from '../ui/sponsors/SponsorsList.astro';
+import SponsorsCallToAction from '../ui/sponsors/SponsorsCallToAction.astro';
 ---
 
 <Layout title="Sponsors | InnovaTech Ica 2025">
-  <Proximamente
-    title="Sponsors"
-    description="La información sobre nuestros sponsors estará disponible próximamente."
-  />
+  <main class="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <!-- Sección de patrón de fondo decorativo -->
+    <div class="absolute inset-0 overflow-hidden -z-10">
+      <div class="absolute inset-0 opacity-[0.03] bg-repeat" style="background-image: url('/assets/pattern-grid.svg');"></div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <SponsorsHeader />
+    
+    <SponsorsList />
+    
+    <SponsorsCallToAction />
+  </main>
 </Layout>

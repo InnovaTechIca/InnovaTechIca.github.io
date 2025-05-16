@@ -1,0 +1,17 @@
+---
+import { sponsors } from '../../data/sponsors';
+import SponsorCard from './SponsorCard.astro';
+
+// Ordenar sponsors por orden
+const sponsorsOrdenados = [...sponsors].sort((a, b) => a.orden - b.orden);
+---
+
+<div class="py-10">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sponsorsOrdenados.map((sponsor) => (
+        <SponsorCard sponsor={sponsor} />
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import type { Sponsor } from '../../data/sponsors';
+import SponsorBadge from './SponsorBadge.astro';
+
+interface Props {
+  sponsor: Sponsor;
+}
+
+const { sponsor } = Astro.props;
+---
+
+<a 
+  href={`/sponsors/${sponsor.id}`} 
+  class="bg-white rounded-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 group relative"
+>
+  <div class="relative">
+    <!-- Efecto de brillo en hover -->
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-100 blur-md transition duration-300 group-hover:duration-200"></div>
+    
+    <!-- Contenedor principal con fondo -->
+    <div class="relative bg-white rounded-xl flex flex-col h-full border border-gray-100 shadow-lg group-hover:shadow-2xl transition duration-300">
+      
+      <!-- Contenido del card -->
+      <div class="p-6 flex flex-col h-full">
+        <!-- Contenedor de la imagen con fondo suave -->
+        <div class="bg-gray-50 rounded-lg p-4 mb-6 overflow-hidden">
+          <div class="flex items-center justify-center h-32 relative">
+            <!-- Círculos decorativos -->
+            <div class="absolute -right-4 -top-4 w-12 h-12 rounded-full bg-blue-100 opacity-40 group-hover:bg-blue-200 transition-colors duration-300"></div>
+            <div class="absolute -left-4 -bottom-4 w-16 h-16 rounded-full bg-indigo-100 opacity-30 group-hover:bg-indigo-200 transition-colors duration-300"></div>
+            
+            <Image 
+              src={sponsor.logo} 
+              alt={`Logo de ${sponsor.nombre}`} 
+              width={200}
+              height={100}
+              class="max-h-32 max-w-[80%] object-contain z-10 transform transition-all duration-500 group-hover:scale-105 filter drop-shadow-sm"
+              loading="eager"
+              transition:name={`imagen-${sponsor.nombre}`}
+            />
+          </div>
+        </div>
+        
+        <!-- Datos del sponsor -->
+        <div class="space-y-4 flex-grow">
+          <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
+            {sponsor.nombre}
+          </h3>
+
+          <p class="text-gray-600 line-clamp-3 text-sm leading-relaxed">
+            {sponsor.descripcion}
+          </p>
+          
+          <!-- Línea divisoria con gradiente -->
+          <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-300 group-hover:w-20 transition-all duration-300"></div>
+        </div>
+        
+        <!-- Botón "Ver más" -->
+        <div class="flex justify-end items-center mt-4 pt-3 border-t border-gray-100">
+          <span class="text-blue-600 group-hover:text-blue-700 inline-flex items-center font-medium text-sm transition-colors">
+            Ver detalles
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1.5 transform group-hover:translate-x-1.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M5 7l5 5-5 5" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
