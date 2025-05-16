@@ -31,7 +31,7 @@ jobs:
           if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
             echo "manager=pnpm" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=npx pnpm" >> $GITHUB_OUTPUT
+            echo "runner=pnpm" >> $GITHUB_OUTPUT
             echo "lockfile=pnpm-lock.yaml" >> $GITHUB_OUTPUT
           elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
@@ -55,9 +55,11 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ steps.detect-package-manager.outputs.lockfile }}
 
-      - name: Install pnpm (if needed)
+      - name: Setup pnpm
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
-        run: npm install -g pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8  # o la versión que prefieras
 
       - name: Setup Pages
         id: pages
