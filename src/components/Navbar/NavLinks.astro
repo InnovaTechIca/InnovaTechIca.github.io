@@ -60,6 +60,11 @@ const isActive = (href: string) => {
 ---
 
 <style>
+  /* Gradiente para íconos activos */
+  .gradient-bg {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+  
   /* Animaciones refinadas */
   @keyframes fadeIn {
     from {
@@ -117,7 +122,6 @@ const isActive = (href: string) => {
       background-position: 0% 50%;
     }
   }
-
   /* Elemento activo */
   .nav-item.active .nav-link {
     position: relative;
@@ -146,7 +150,34 @@ const isActive = (href: string) => {
     animation: glowPulse 2s infinite;
   }
   
-  /* Animación para entrada escalonada */
+  /* Estilos para el enlace activo en móvil */
+  .mobile-active-link {
+    position: relative;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.07)) !important;
+    border-left: 3px solid #3b82f6;
+    box-shadow: 0 4px 15px -3px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Animación para el indicador activo móvil */
+  @keyframes activePulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+  }
+  
+  .mobile-active-indicator {
+    animation: activePulse 2s infinite;
+  }
+    /* Animación para entrada escalonada */
   .nav-item {
     animation: fadeIn 0.6s forwards;
     animation-delay: calc(var(--idx) * 80ms);
@@ -157,6 +188,38 @@ const isActive = (href: string) => {
     animation: scaleIn 0.4s forwards;
     animation-delay: calc(var(--idx) * 60ms);
     opacity: 0;
+    position: relative;
+  }
+  
+  /* Efecto de brillos lateral para links activos en móvil */
+  .mobile-active-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, 
+      transparent 0%, 
+      rgba(59, 130, 246, 0.1) 50%, 
+      transparent 100%);
+    transform: translateX(-100%);
+    animation: shineEffect 3s infinite;
+    pointer-events: none;
+    border-radius: 0.75rem;
+    z-index: 1;
+  }
+  
+  @keyframes shineEffect {
+    0% {
+      transform: translateX(-100%);
+    }
+    40% {
+      transform: translateX(120%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
   }
 </style>
 
@@ -187,20 +250,19 @@ const isActive = (href: string) => {
       <ul class="space-y-1.5">
         {navItems.map((item, idx) => {
           const active = isActive(item.href);
-          return (
-            <li class="mobile-nav-item" style={`--idx: ${idx + 1}`}>
+          return (            <li class="mobile-nav-item" style={`--idx: ${idx + 1}`}>
               <a 
                 href={item.href}
                 class={`flex items-center gap-3 p-3 rounded-xl relative group transition-all duration-300 ${
                   active 
-                    ? "bg-gradient-to-r from-blue-500/10 to-blue-500/10 text-blue-700" 
+                    ? "mobile-active-link" 
                     : "hover:bg-blue-50/50 text-gray-700"
                 }`}
               >
                 {/* Icono con efecto */}
                 <div class={`flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300 ${
                   active 
-                    ? "gradient-bg text-white shadow-md shadow-blue-400/20" 
+                    ? "bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-400/30" 
                     : "bg-gray-100/80 text-blue-500 group-hover:bg-blue-100/80 group-hover:text-blue-600"
                 }`}>
                   <Fragment set:html={item.icon} />
@@ -209,7 +271,9 @@ const isActive = (href: string) => {
                 {/* Textos con descripción */}
                 <div class="flex flex-col">
                   <span class={`font-medium text-[15px] ${active ? "text-blue-700" : "text-gray-700"}`}>{item.name}</span>
-                  <span class="text-xs text-gray-500 group-hover:text-blue-500 transition-colors duration-300">
+                  <span class={`text-xs transition-colors duration-300 ${
+                    active ? "text-blue-500" : "text-gray-500 group-hover:text-blue-500"
+                  }`}>
                     {item.name === "Inicio" && "Página principal"}
                     {item.name === "Cronograma" && "Agenda del evento"}
                     {item.name === "Ponentes" && "Especialistas invitados"}
@@ -218,10 +282,11 @@ const isActive = (href: string) => {
                   </span>
                 </div>
                 
-                {/* Indicador activo */}
+                {/* Indicador activo mejorado */}
                 {active && (
-                  <div class="ml-auto">
-                    <div class="w-2 h-2 rounded-full bg-blue-500 active-indicator"></div>
+                  <div class="ml-auto flex items-center space-x-1.5">
+                    <div class="w-1.5 h-5 rounded-full bg-gradient-to-b from-blue-400 to-blue-600 mobile-active-indicator"></div>
+                    <div class="w-1 h-3 rounded-full bg-gradient-to-b from-blue-400 to-blue-500 opacity-70"></div>
                   </div>
                 )}
               </a>
