@@ -1,9 +1,15 @@
 ---
+/*
+ * Este componente contiene el script para el menú móvil.
+ * Utiliza el evento 'astro:page-load' para asegurar que el menú móvil
+ * funcione correctamente incluso después de las transiciones de página.
+ */
 ---
 
 <script is:inline>
   // Push-content mobile menu implementation
-  (function () {
+  // Se usa document.addEventListener para reiniciar el menú después de las transiciones de vista
+  document.addEventListener('astro:page-load', () => {
     // Function to initialize mobile menu
     function initMobileMenu() {
       const menuButton = document.getElementById("mobile-menu-button");
@@ -199,19 +205,9 @@
       });
 
       console.log("Push-content mobile menu initialized successfully");
-    }
-
-    // Try to initialize immediately
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initMobileMenu);
-    } else {
-      // DOM already ready, run init
-      initMobileMenu();
-    }
-
-    // Backup initialization on window load
-    window.addEventListener("load", initMobileMenu);
-  })();
+    }    // Inicializar inmediatamente
+    initMobileMenu();
+  });
 </script>
 
 <style is:global>
