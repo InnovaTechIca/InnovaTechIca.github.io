@@ -9,11 +9,11 @@ import SocialMedia from './Proximamente/SocialMedia.astro';
 interface Props {
   title: string;
   description: string;
-  eventDate?: string;
+  targetDate?: string;
 }
 
-// Definimos la fecha exacta del evento: 21 de junio de 2025 a las 8:00 AM
-const { title, description, eventDate = "2025-06-21T08:00:00" } = Astro.props;
+// Definimos la fecha exacta del registro 30 de mayo
+const { title, description, targetDate = "2025-05-30T08:00:00" } = Astro.props;
 ---
 
 <div class="min-h-screen py-12 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white">
@@ -23,7 +23,7 @@ const { title, description, eventDate = "2025-06-21T08:00:00" } = Astro.props;
       <EventHeader 
         title={title}
         subtitle="InnovaTech Ica 2025"
-        date="21 de Junio, 2025"
+        date="30 de Mayo, 2025"
       />
       
       <!-- Tarjeta principal con contador -->
@@ -32,7 +32,7 @@ const { title, description, eventDate = "2025-06-21T08:00:00" } = Astro.props;
         <EventDescription description={description} />
         
         <!-- Contador regresivo -->
-        <CountdownTimer eventDate={eventDate} />
+        <CountdownTimer targetDate={targetDate} />
       </div>
       
       <!-- Enlaces a redes sociales -->

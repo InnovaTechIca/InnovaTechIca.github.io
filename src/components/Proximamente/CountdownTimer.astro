@@ -1,9 +1,9 @@
 ---
 interface Props {
-  eventDate: string;
+  targetDate: string;
 }
 
-const { eventDate } = Astro.props;
+const { targetDate } = Astro.props;
 
 // Definir las unidades del contador
 const units = [
@@ -15,7 +15,7 @@ const units = [
 ---
 
 <div class="countdown-container">
-  <h3 class="text-2xl font-bold text-blue-600 mb-6">Faltan:</h3>
+  <h3 class="text-2xl font-bold text-blue-600 mb-6">Faltan para el registro del evento:</h3>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
     {
       units.map((unit) => (
@@ -30,10 +30,10 @@ const units = [
   </div>
 </div>
 
-<script define:vars={{ eventDate }}>
+<script define:vars={{ targetDate }}>
   // Función para actualizar el contador
   function updateCountdown() {
-    const targetTime = new Date(eventDate).getTime();
+    const targetTime = new Date(targetDate).getTime();
     const now = new Date().getTime();
     const difference = targetTime - now;
 
