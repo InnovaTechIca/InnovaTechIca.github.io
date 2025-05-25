@@ -26,12 +26,15 @@ const { id, nombre, cargo, empresa, foto, temaCharla, redesSociales } = Astro.pr
   <article class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:translate-y-[-8px] h-full flex flex-col border border-gray-100 relative ponente-card hover:border-blue-200" style="transform-style: preserve-3d;">    <div class="relative overflow-hidden aspect-[3/4] sm:aspect-[4/3] lg:aspect-[3/4]">
       <Image 
         src={foto} 
-        alt={`Foto de ${nombre}`} 
-        class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110" 
+        alt={`Foto profesional de ${nombre}, ${cargo} en ${empresa}`} 
+        class="w-full h-full object-cover object-center transition duration-700 ease-in-out group-hover:scale-110 filter brightness-105 contrast-105" 
         transition:name={`imagen-${id}`}
         loading="lazy"
-        width={300}
-        height={400}
+        width={400}
+        height={533}
+        quality={100}
+        format="webp"
+        densities={[1, 2]}
       />
       <div class="absolute inset-0 opacity-80 group-hover:opacity-90 transition-all duration-300">
         <div class="absolute top-4 left-4 flex flex-col gap-2">

@@ -1,5 +1,8 @@
 // Importación de fotos
 import Ponente1 from '../assets/ponente1.jpg';
+import LuisTasayco from '../assets/ponentes/luis-tasayco.jpg';
+import GerardoCayo from '../assets/ponentes/gerardo-cayo.jpg';
+import RenzoDeLaCruz from '../assets/ponentes/renzo-de-la-cruz.jpg';
 import type { ImageMetadata } from 'astro';
 
 // Definición del tipo para los ponentes del evento
@@ -25,15 +28,14 @@ export interface Ponente {
 // Datos de los ponentes para el evento InnovaTech 2025
 export const ponentes: Ponente[] = [
   {
-    id: "ana-rodriguez",
-    nombre: "Ana Rodríguez Vega",
-    cargo: "Ingeniera de Inteligencia Artificial",
-    empresa: "TechSolutions Perú",    bio: "Ana es especialista en aprendizaje automático con más de 10 años de experiencia en el sector. Ha liderado proyectos de IA para algunas de las empresas más grandes de Latinoamérica, implementando soluciones que han transformado la manera en que las organizaciones aprovechan sus datos.",
-    foto: Ponente1,
+    id: "luis-tasayco",
+    nombre: "Luis Alberto Tasayco Munayco",
+    cargo: "Senior Infraestructure",
+    empresa: "Pacífico Seguros",
+    bio: "Luis es especialista en aprendizaje automático con más de 10 años de experiencia en el sector. Ha liderado proyectos de IA para algunas de las empresas más grandes de Latinoamérica, implementando soluciones que han transformado la manera en que las organizaciones aprovechan sus datos.",
+    foto: LuisTasayco,
     redesSociales: {
-      linkedin: "https://linkedin.com/in/ana-rodriguez-vega",
-      twitter: "https://twitter.com/anarodrivegia",
-      github: "https://github.com/anarodriguezv",
+      linkedin: "https://www.linkedin.com/in/luis-alberto-tasayco-munayco"
     },
     temaCharla: "El futuro de la IA en aplicaciones empresariales",
     horaCharla: "10:00 AM",
@@ -41,15 +43,14 @@ export const ponentes: Ponente[] = [
     orden: 1
   },
   {
-    id: "carlos-mendoza",
-    nombre: "Carlos Mendoza Torres",
-    cargo: "CTO & Co-fundador",
-    empresa: "Blockchain Innovations",    bio: "Carlos es ingeniero de software con especialización en tecnologías blockchain. Co-fundó Blockchain Innovations en 2018, una startup que desarrolla soluciones para la trazabilidad de productos agrícolas usando blockchain. Su trabajo ha sido reconocido por el Ministerio de Producción como una de las iniciativas más innovadoras del país.",
-    foto: Ponente1,
+    id: "gerardo-cayo",
+    nombre: "Gerardo Germán Cayo Morales",
+    cargo: "Senior Data Solutions Architect",
+    empresa: "Indra",
+    bio: "Gerardo es ingeniero de software con especialización en tecnologías blockchain. Co-fundó Blockchain Innovations en 2018, una startup que desarrolla soluciones para la trazabilidad de productos agrícolas usando blockchain. Su trabajo ha sido reconocido por el Ministerio de Producción como una de las iniciativas más innovadoras del país.",
+    foto: GerardoCayo,
     redesSociales: {
-      linkedin: "https://linkedin.com/in/carlos-mendoza-torres",
-      github: "https://github.com/carlosmendozat",
-      website: "https://carlosmendoza.dev"
+      linkedin: "https://www.linkedin.com/in/ggcayo/"
     },
     temaCharla: "Blockchain más allá de las criptomonedas",
     horaCharla: "11:30 AM",
@@ -57,14 +58,14 @@ export const ponentes: Ponente[] = [
     orden: 2
   },
   {
-    id: "laura-diaz",
-    nombre: "Laura Díaz Paredes",
-    cargo: "Directora de Ciberseguridad",
-    empresa: "SecureNet Global",    bio: "Laura es experta en seguridad informática con certificaciones CISSP y CEH. Ha trabajado protegiendo infraestructuras críticas en sectores como banca y telecomunicaciones. Actualmente dirige el equipo de ciberseguridad para Latinoamérica en SecureNet Global, donde implementa estrategias de defensa contra amenazas avanzadas.",
-    foto: Ponente1,
+    id: "renzo-de-la-cruz",
+    nombre: "Renzo De la Cruz Unzueta",
+    cargo: "BBVA Perú",
+    empresa: "Data Engineer",
+    bio: "Renzo es experto en seguridad informática con certificaciones CISSP y CEH. Ha trabajado protegiendo infraestructuras críticas en sectores como banca y telecomunicaciones. Actualmente dirige el equipo de ciberseguridad para Latinoamérica en SecureNet Global, donde implementa estrategias de defensa contra amenazas avanzadas.",
+    foto: RenzoDeLaCruz,
     redesSociales: {
-      linkedin: "https://linkedin.com/in/laura-diaz-paredes",
-      twitter: "https://twitter.com/lauradiazciber",
+      linkedin: "https://www.linkedin.com/in/renzodlcu/"
     },
     temaCharla: "Ciberseguridad en tiempos de transformación digital",
     horaCharla: "01:00 PM",

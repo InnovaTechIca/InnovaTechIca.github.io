@@ -84,8 +84,15 @@ const canonicalURL = canonical ? canonical : new URL(Astro.url.pathname, siteUrl
 		<main id="main-content" class="flex-1">
 			<slot />
 		</main>
+				<Footer />
 		
-		<Footer />
+		<!-- Script para optimización de imágenes -->
+		<script>
+			// Importar y ejecutar el optimizador de imágenes
+			import('../utils/imageOptimizer.js').then(module => {
+				module.initImageOptimizer();
+			}).catch(console.error);
+		</script>
 		
 		<!-- Script para análisis estructurado JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify({

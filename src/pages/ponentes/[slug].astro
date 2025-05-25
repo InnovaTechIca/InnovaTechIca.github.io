@@ -80,15 +80,20 @@ const {
         </div>
         
         <!-- Foto y detalles de la charla -->
-        <div>          <div class="rounded-lg overflow-hidden shadow-xl mb-8 aspect-[3/4]">
+        <div>          <div class="rounded-lg overflow-hidden shadow-xl mb-8 aspect-[3/4] relative">
             <Image 
               src={foto} 
-              alt={`Foto de ${nombre}`} 
-              class="w-full h-full object-cover" 
+              alt={`Foto profesional de ${nombre}, ${cargo} en ${empresa}`} 
+              class="w-full h-full object-cover object-center filter brightness-105 contrast-105 saturate-110" 
               transition:name={`imagen-${ponente.id}`}
-              width={400}
-              height={600}
+              width={500}
+              height={667}
+              quality={100}
+              format="webp"
+              densities={[1, 2]}
             />
+            <!-- Overlay sutil para mejorar contraste del texto si es necesario -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           
           <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 shadow-sm">
