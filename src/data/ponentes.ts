@@ -37,7 +37,7 @@ export const ponentes: Ponente[] = [
     redesSociales: {
       linkedin: "https://www.linkedin.com/in/luis-alberto-tasayco-munayco",
     },
-    temaCharla: "Infraestructura",
+    temaCharla: "Ciberseguridad",
     horaCharla: "10:00 AM",
     descripcionCharla:
       "Exploraremos cómo las empresas pueden implementar soluciones de inteligencia artificial para optimizar procesos y tomar decisiones basadas en datos. Se presentarán casos prácticos y recomendaciones para la integración exitosa de la IA en cualquier organización.",
