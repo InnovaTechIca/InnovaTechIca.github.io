@@ -3,6 +3,7 @@ import LogoColegio from '../assets/sponsors/ci_ica.png';
 import LogoIndra from '../assets/sponsors/indra.jpg';
 import LogoCajaMunicipal from '../assets/sponsors/caja_ica.png';
 import LogoDevHouse from '../assets/sponsors/devhouse.jpg';
+import LogoRumba77 from '../assets/sponsors/rumba77.svg';
 import type { ImageMetadata } from 'astro';
 
 // Definición del tipo para los sponsors del evento
@@ -97,5 +98,22 @@ export const sponsors: Sponsor[] = [
       "2 entradas para el evento completo"
     ],
     orden: 4
+  },
+  {
+    id: "rumba77",
+    nombre: "Rumba77",
+    logo: LogoRumba77,
+    descripcion: "Rumba77 es una plataforma web que te ayuda a buscar proveedores para tus eventos o fiestas, crear invitaciones web y añadir tu lista de regalos.",
+    sitioWeb: "https://rumba77.com/",
+    redesSociales: {
+      linkedin: "https://www.linkedin.com/company/rumba77",
+      twitter: "https://twitter.com/rumba77",
+    },
+    beneficios: [
+      "Logo en el sitio web del evento",
+      "Mención en redes sociales",
+      "2 entradas para el evento completo"
+    ],
+    orden: 5
   },
 ];
