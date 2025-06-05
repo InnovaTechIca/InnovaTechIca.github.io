@@ -28,63 +28,87 @@ export const eventosCronograma: EventoCronograma[] = [
   },
   {
     hora: "10:00 a.m.",
+    actividad: "Presentación Comunidad",
+    tipo: "recibimiento",
+    duracion: 30
+  },
+  {
+    hora: "10:30 a.m.",
     actividad: "Segunda ponencia",
     tipo: "ponencia",
     duracion: 60
   },
   {
-    hora: "11:00 a.m.",
+    hora: "11:30 a.m.",
     actividad: "Break",
     tipo: "break",
-    duracion: 20
-  },
-  {
-    hora: "11:20 a.m.",
-    actividad: "Sorteo",
-    tipo: "sorteo",
-    duracion: 25
+    duracion: 15
   },
   {
     hora: "11:45 a.m.",
+    actividad: "Sorteo",
+    tipo: "sorteo",
+    duracion: 10
+  },
+  {
+    hora: "12:00 p.m.",
     actividad: "Tercera ponencia",
     tipo: "ponencia",
     duracion: 60
   },
   {
-    hora: "12:45 p.m.",
-    actividad: "Break / Almuerzo",
+    hora: "01:00 p.m.",
+    actividad: "Presentación Comunidad",
+    tipo: "recibimiento",
+    duracion: 30
+  },
+  {
+    hora: "01:30 p.m.",
+    actividad: "Break Almuerzo",
     tipo: "almuerzo",
     duracion: 60
   },
   {
-    hora: "01:45 p.m.",
-    actividad: "Cuarta ponencia",
-    tipo: "ponencia",
-    duracion: 75
-  },
-  {
-    hora: "03:00 p.m.",
+    hora: "02:30 p.m.",
     actividad: "Sorteo",
     tipo: "sorteo",
-    duracion: 30
+    duracion: 15
   },
   {
-    hora: "03:30 p.m.",
-    actividad: "Quinta Ponencia",
+    hora: "02:45 p.m.",
+    actividad: "Cuarta ponencia",
     tipo: "ponencia",
     duracion: 60
   },
   {
-    hora: "04:30 p.m.",
-    actividad: "Clausura del evento",
-    tipo: "clausura",
-    duracion: 20
+    hora: "03:45 p.m.",
+    actividad: "Presentación Comunidad / Sorteo",
+    tipo: "sorteo",
+    duracion: 30
   },
   {
-    hora: "04:50 p.m.",
-    actividad: "Foto final",
-    tipo: "foto",
-    duracion: 10
+    hora: "04:15 p.m.",
+    actividad: "Quinta ponencia",
+    tipo: "ponencia",
+    duracion: 60
+  },
+  {
+    hora: "05:15 p.m.",
+    actividad: "Sorteo / Dinámica",
+    tipo: "sorteo",
+    duracion: 15
+  },
+  {
+    hora: "05:30 p.m.",
+    actividad: "Clausura y Cierre del evento",
+    tipo: "clausura",
+    duracion: 15
+  },
+  {
+    hora: "05:45 p.m.",
+    actividad: "Fin del Evento",
+    tipo: "clausura",
+    duracion: 15
   }
 ];
 

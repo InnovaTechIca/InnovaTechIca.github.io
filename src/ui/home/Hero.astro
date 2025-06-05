@@ -1,32 +1,64 @@
 ---
-import CountdownTimer from './CountdownTimer.astro';
-import HeroText from './HeroText.astro';
-import ActionButtons from './ActionButtons.astro';
-import { Image } from 'astro:assets';
-import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
+import CountdownTimer from "./CountdownTimer.astro";
+import HeroText from "./HeroText.astro";
+import ActionButtons from "./ActionButtons.astro";
+import { Image } from "astro:assets";
+import ColegioIngenieros from "/src/assets/colegio-ingenieros-en-Ica.jpg";
 ---
 
-<section class="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 md:py-24">
+<section
+  class="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 md:py-24"
+>
   <!-- Fondo decorativo mejorado con efectos más dinámicos -->
   <div class="absolute inset-0">
     <div class="absolute inset-0 mix-blend-multiply"></div>
     <!-- Gradientes de fondo más sofisticados -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-300/20 to-blue-400/10 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute top-1/3 -left-48 w-96 h-96 bg-gradient-to-tr from-blue-300/20 to-sky-400/10 rounded-full blur-3xl animate-pulse-slower"></div>
-    <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-sky-200/30 to-blue-100/20 rounded-full blur-3xl animate-pulse-slow"></div>
-    
+    <div
+      class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-300/20 to-blue-400/10 rounded-full blur-3xl animate-pulse-slow"
+    >
+    </div>
+    <div
+      class="absolute top-1/3 -left-48 w-96 h-96 bg-gradient-to-tr from-blue-300/20 to-sky-400/10 rounded-full blur-3xl animate-pulse-slower"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-sky-200/30 to-blue-100/20 rounded-full blur-3xl animate-pulse-slow"
+    >
+    </div>
+
     <!-- Patrón de círculos decorativos con animación y mejor distribución -->
-    <div class="hidden md:block absolute right-10 top-10 w-6 h-6 bg-blue-400 rounded-full opacity-20 animate-float"></div>
-    <div class="hidden md:block absolute right-32 top-20 w-4 h-4 bg-blue-500 rounded-full opacity-20 animate-float-delay"></div>
-    <div class="hidden md:block absolute left-20 bottom-32 w-8 h-8 bg-sky-400 rounded-full opacity-20 animate-float-slow"></div>
-    <div class="hidden md:block absolute left-1/4 top-24 w-5 h-5 bg-blue-300 rounded-full opacity-10 animate-float-delay-long"></div>
-    
+    <div
+      class="hidden md:block absolute right-10 top-10 w-6 h-6 bg-blue-400 rounded-full opacity-20 animate-float"
+    >
+    </div>
+    <div
+      class="hidden md:block absolute right-32 top-20 w-4 h-4 bg-blue-500 rounded-full opacity-20 animate-float-delay"
+    >
+    </div>
+    <div
+      class="hidden md:block absolute left-20 bottom-32 w-8 h-8 bg-sky-400 rounded-full opacity-20 animate-float-slow"
+    >
+    </div>
+    <div
+      class="hidden md:block absolute left-1/4 top-24 w-5 h-5 bg-blue-300 rounded-full opacity-10 animate-float-delay-long"
+    >
+    </div>
+
     <!-- Líneas decorativas más sutiles con animación -->
-    <div class="hidden md:block absolute top-1/3 right-0 w-1/3 h-px bg-gradient-to-r from-transparent via-blue-200/50 to-blue-200 animate-pulse-slow"></div>
-    <div class="hidden md:block absolute bottom-1/3 left-0 w-1/3 h-px bg-gradient-to-l from-transparent via-blue-200/50 to-blue-200 animate-pulse-slower"></div>
-    
+    <div
+      class="hidden md:block absolute top-1/3 right-0 w-1/3 h-px bg-gradient-to-r from-transparent via-blue-200/50 to-blue-200 animate-pulse-slow"
+    >
+    </div>
+    <div
+      class="hidden md:block absolute bottom-1/3 left-0 w-1/3 h-px bg-gradient-to-l from-transparent via-blue-200/50 to-blue-200 animate-pulse-slower"
+    >
+    </div>
+
     <!-- Patrón sutil de cuadrícula en el fondo -->
-    <div class="absolute inset-0 bg-[url('/assets/pattern-grid.svg')] opacity-[0.015]"></div>
+    <div
+      class="absolute inset-0 bg-[url('/assets/pattern-grid.svg')] opacity-[0.015]"
+    >
+    </div>
   </div>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
@@ -34,57 +66,134 @@ import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
       <!-- Texto y botones de acción -->
       <div class="lg:col-span-7 space-y-8">
         <HeroText />
-        
+
         <!-- Badges con mejor diseño y animación -->
         <div class="flex flex-wrap gap-4 my-6">
-          <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-blue-50 to-blue-100/80 text-blue-700 px-3.5 py-1.5 rounded-full shadow-sm border border-blue-100/30 backdrop-blur-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div
+            class="flex items-center text-xs md:text-sm bg-gradient-to-r from-blue-50 to-blue-100/80 text-blue-700 px-3.5 py-1.5 rounded-full shadow-sm border border-blue-100/30 backdrop-blur-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 mr-1.5 text-blue-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <span class="font-medium">Evento de 9 horas</span>
           </div>
-          
-          <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-green-50 to-green-100/80 text-green-700 px-3.5 py-1.5 rounded-full shadow-sm border border-green-100/30 backdrop-blur-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+
+          <div
+            class="flex items-center text-xs md:text-sm bg-gradient-to-r from-green-50 to-green-100/80 text-green-700 px-3.5 py-1.5 rounded-full shadow-sm border border-green-100/30 backdrop-blur-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 mr-1.5 text-green-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
             </svg>
             <span class="font-medium">5 Ponentes</span>
           </div>
-          
-          <div class="flex items-center text-xs md:text-sm bg-gradient-to-r from-yellow-50 to-amber-100/80 text-amber-700 px-3.5 py-1.5 rounded-full shadow-sm border border-yellow-100/30 backdrop-blur-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+
+          <div
+            class="flex items-center text-xs md:text-sm bg-gradient-to-r from-yellow-50 to-amber-100/80 text-amber-700 px-3.5 py-1.5 rounded-full shadow-sm border border-yellow-100/30 backdrop-blur-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 mr-1.5 text-amber-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              ></path>
             </svg>
             <span class="font-medium">Certificados disponibles</span>
           </div>
         </div>
-        
+
         <ActionButtons />
 
         <!-- Certificados con diseño más atractivo y elementos interactivos -->
         <div class="mt-8 relative group">
           <!-- Efecto de borde brillante animado -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-sky-500 rounded-xl opacity-25 blur-sm group-hover:opacity-40 transition-opacity duration-300"></div>
-          
-          <div class="relative bg-gradient-to-br from-white to-blue-50/90 p-5 rounded-xl border border-blue-100/50 shadow-lg backdrop-blur-sm overflow-hidden">
+          <div
+            class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-sky-500 rounded-xl opacity-25 blur-sm group-hover:opacity-40 transition-opacity duration-300"
+          >
+          </div>
+
+          <div
+            class="relative bg-gradient-to-br from-white to-blue-50/90 p-5 rounded-xl border border-blue-100/50 shadow-lg backdrop-blur-sm overflow-hidden"
+          >
             <!-- Decoración de fondo -->
-            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-100/40 rounded-full blur-xl"></div>
-            
+            <div
+              class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-100/40 rounded-full blur-xl"
+            >
+            </div>
+
             <div class="flex items-start space-x-5 relative">
               <div class="flex-shrink-0 mt-1">
-                <div class="bg-gradient-to-br from-blue-100 to-blue-200 p-2.5 rounded-full shadow-inner">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <div
+                  class="bg-gradient-to-br from-blue-100 to-blue-200 p-2.5 rounded-full shadow-inner"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-7 w-7 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
                   </svg>
                 </div>
               </div>
               <div class="flex-1">
-                <h3 class="font-bold text-gray-800 text-lg">Certificados Oficiales</h3>
-                <p class="text-gray-600 mt-1.5">Obtén certificados avalados por el Colegio de Ingenieros para validar tu participación en el evento.</p>
-                <a href="/certificados" class="inline-flex items-center mt-3 px-4 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-0.5">
+                <h3 class="font-bold text-gray-800 text-lg">
+                  Certificados Oficiales
+                </h3>
+                <p class="text-gray-600 mt-1.5">
+                  Obtén certificados avalados por el Colegio de Ingenieros para
+                  validar tu participación en el evento.
+                </p>
+                <a
+                  href="/certificados"
+                  class="group relative inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 overflow-hidden mt-2"
+                >
                   <span>Comprar certificado</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 ml-1.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                   </svg>
                 </a>
               </div>
@@ -92,106 +201,216 @@ import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
           </div>
         </div>
       </div>
-        <!-- Imagen o gráfico lateral con contador y efectos mejorados -->
+      <!-- Imagen o gráfico lateral con contador y efectos mejorados -->
       <div class="hidden lg:block lg:col-span-5">
-        <div class="relative transform perspective-1200 hover:-rotate-1 transition-all duration-700 group">
+        <div
+          class="relative transform perspective-1200 hover:-rotate-1 transition-all duration-700 group"
+        >
           <!-- Efectos de fondo decorativos mejorados -->
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl transform rotate-2 scale-[1.03] -z-10 shadow-xl opacity-20 group-hover:scale-[1.05] group-hover:opacity-30 transition-all duration-700"></div>
-          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 group-hover:blur-xl transition-all duration-700"></div>
-          <div class="absolute -inset-0.5 bg-white/50 rounded-2xl opacity-30 blur-sm group-hover:opacity-40 transition-all duration-500"></div>
-          
-          <div class="relative bg-gradient-to-br from-white to-blue-50/95 rounded-xl shadow-xl p-0 backdrop-blur-sm border border-white/60 overflow-hidden">
-            
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl transform rotate-2 scale-[1.03] -z-10 shadow-xl opacity-20 group-hover:scale-[1.05] group-hover:opacity-30 transition-all duration-700"
+          >
+          </div>
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 group-hover:blur-xl transition-all duration-700"
+          >
+          </div>
+          <div
+            class="absolute -inset-0.5 bg-white/50 rounded-2xl opacity-30 blur-sm group-hover:opacity-40 transition-all duration-500"
+          >
+          </div>
+
+          <div
+            class="relative bg-gradient-to-br from-white to-blue-50/95 rounded-xl shadow-xl p-0 backdrop-blur-sm border border-white/60 overflow-hidden"
+          >
             <!-- Imagen mejorada con efectos avanzados -->
             <div class="relative group/image overflow-hidden">
               <!-- Overlay decorativo superior -->
-              <div class="absolute inset-0 bg-gradient-to-b from-blue-900/40 to-transparent z-10 opacity-40 mix-blend-overlay"></div>
-              
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-blue-900/40 to-transparent z-10 opacity-40 mix-blend-overlay"
+              >
+              </div>
+
               <!-- Textura sutil mejorada -->
-              <div class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%270 0 2000 1500%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cdefs%3E%3Cpattern id=%27a%27 patternUnits=%27userSpaceOnUse%27 width=%2720%27 height=%2720%27 patternTransform=%27scale(50) rotate(0)%27%3E%3Crect x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27 fill=%27%23ffffff%27/%3E%3Ccircle cx=%2710%27 cy=%2710%27 r=%272%27 fill=%27%23f7fafc%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23a)%27/%3E%3C/svg%3E')] opacity-10 z-10 mix-blend-overlay"></div>
-              
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%270 0 2000 1500%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cdefs%3E%3Cpattern id=%27a%27 patternUnits=%27userSpaceOnUse%27 width=%2720%27 height=%2720%27 patternTransform=%27scale(50) rotate(0)%27%3E%3Crect x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27 fill=%27%23ffffff%27/%3E%3Ccircle cx=%2710%27 cy=%2710%27 r=%272%27 fill=%27%23f7fafc%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23a)%27/%3E%3C/svg%3E')] opacity-10 z-10 mix-blend-overlay"
+              >
+              </div>
+
               <!-- Badge posicionado sobre la imagen -->
               <div class="absolute top-4 left-4 z-20">
-                <div class="flex items-center bg-white/90 backdrop-blur-sm text-blue-600 px-3 py-1.5 rounded-full shadow-lg border border-blue-100/70">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div
+                  class="flex items-center bg-white/90 backdrop-blur-sm text-blue-600 px-3 py-1.5 rounded-full shadow-lg border border-blue-100/70"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   <span class="text-xs font-semibold">Destacado</span>
                 </div>
               </div>
-              
+
               <!-- Imagen con efectos hover mejorados -->
               <div class="relative overflow-hidden h-[300px]">
-                <Image 
-                  src={ColegioIngenieros} 
-                  alt="Colegio de Ingenieros de Ica" 
+                <Image
+                  src={ColegioIngenieros}
+                  alt="Colegio de Ingenieros de Ica"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-[1.05] filter saturate-[1.05] contrast-[1.02]"
                   loading="eager"
                 />
-                
+
                 <!-- Brillo superior mejorado -->
-                <div class="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-60"></div>
-                
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-60"
+                >
+                </div>
+
                 <!-- Destellos angulares decorativos mejorados -->
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-blue-300/10 rotate-45 transform origin-bottom-right"></div>
-                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-blue-300/10 rotate-45 transform origin-top-left"></div>
-                
+                <div
+                  class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-blue-300/10 rotate-45 transform origin-bottom-right"
+                >
+                </div>
+                <div
+                  class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-blue-300/10 rotate-45 transform origin-top-left"
+                >
+                </div>
+
                 <!-- Viñeta sutil en las esquinas -->
-                <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/20 opacity-60"></div>
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/20 opacity-60"
+                >
+                </div>
               </div>
             </div>
-            
+
             <!-- Card con contador con mejor contraste y diseño -->
             <div class="p-6 bg-white/95 border-t border-blue-50">
-              <h3 class="font-semibold text-center text-gray-800 mb-4 text-lg">Faltan para el registro para el evento</h3>
-              <!-- Mayo 30 -->
-              <CountdownTimer targetDate="2025-05-30T08:00:00" />
+              <h3 class="font-semibold text-center text-gray-800 mb-4 text-lg">
+                Faltan para el evento
+              </h3>
+              <!-- Junio 21 -->
+              <CountdownTimer targetDate="2025-06-21T08:00:00" />
             </div>
-            
+
             <!-- Información del evento con mejor diseño y efectos -->
             <div class="mt-6 mb-6 mx-6 relative overflow-hidden group/info">
               <!-- Efecto de borde brillante animado mejorado -->
-              <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-400 to-blue-500 rounded-xl opacity-30 blur-sm group-hover/info:opacity-50 transition-opacity duration-300"></div>
-              
-              <div class="relative bg-white bg-opacity-95 p-5 rounded-xl border border-blue-100/70 backdrop-blur-sm shadow-sm">
+              <div
+                class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-400 to-blue-500 rounded-xl opacity-30 blur-sm group-hover/info:opacity-50 transition-opacity duration-300"
+              >
+              </div>
+
+              <div
+                class="relative bg-white bg-opacity-95 p-5 rounded-xl border border-blue-100/70 backdrop-blur-sm shadow-sm"
+              >
                 <div class="flex flex-col space-y-4">
                   <!-- Fecha del evento con icono mejorado -->
                   <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <div
+                      class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
                       </svg>
                     </div>
                     <div>
-                      <div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Fecha</div>
-                      <div class="text-sm text-gray-800 font-bold">21 de junio, 2025</div>
+                      <div
+                        class="text-xs text-blue-600 font-medium uppercase tracking-wide"
+                      >
+                        Fecha
+                      </div>
+                      <div class="text-sm text-gray-800 font-bold">
+                        21 de junio, 2025
+                      </div>
                     </div>
                   </div>
-                  
+
                   <!-- Horario del evento con icono mejorado -->
                   <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <div
+                      class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
                       </svg>
                     </div>
                     <div>
-                      <div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Horario</div>
-                      <div class="text-sm text-gray-800 font-bold">08:00 - 17:00</div>
+                      <div
+                        class="text-xs text-blue-600 font-medium uppercase tracking-wide"
+                      >
+                        Horario
+                      </div>
+                      <div class="text-sm text-gray-800 font-bold">
+                        08:00 - 17:00
+                      </div>
                     </div>
                   </div>
-                  
+
                   <!-- Lugar del evento con icono de ubicación -->
                   <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <div
+                      class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        ></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                       </svg>
                     </div>
                     <div>
-                      <div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Ubicación</div>
-                      <div class="text-sm text-gray-800 font-bold">Colegio de Ingenieros de Ica</div>
+                      <div
+                        class="text-xs text-blue-600 font-medium uppercase tracking-wide"
+                      >
+                        Ubicación
+                      </div>
+                      <div class="text-sm text-gray-800 font-bold">
+                        Colegio de Ingenieros de Ica
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -201,105 +420,212 @@ import ColegioIngenieros from '/src/assets/colegio-ingenieros-en-Ica.jpg';
         </div>
       </div>
     </div>
-      <!-- Contador para móvil con diseño mejorado y efectos avanzados -->
+    <!-- Contador para móvil con diseño mejorado y efectos avanzados -->
     <div class="lg:hidden mt-12 relative overflow-hidden">
       <!-- Efectos de fondo decorativos para móvil mejorados -->
-      <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-xl opacity-25 blur-lg"></div>
-      <div class="absolute -inset-0.5 bg-white/50 rounded-xl opacity-30 blur-sm"></div>
-      
+      <div
+        class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-xl opacity-25 blur-lg"
+      >
+      </div>
+      <div
+        class="absolute -inset-0.5 bg-white/50 rounded-xl opacity-30 blur-sm"
+      >
+      </div>
+
       <!-- Contenedor principal con mejor presentación -->
-      <div class="relative bg-gradient-to-br from-white to-blue-50/95 rounded-xl shadow-lg p-0 border border-blue-100/70 overflow-hidden">
+      <div
+        class="relative bg-gradient-to-br from-white to-blue-50/95 rounded-xl shadow-lg p-0 border border-blue-100/70 overflow-hidden"
+      >
         <!-- Badge de evento destacado con mejor posicionamiento y diseño -->
-        <div class="absolute top-0 right-0 z-10 transform translate-x-1/4 -translate-y-1/4">
+        <div
+          class="absolute top-0 right-0 z-10 transform translate-x-1/4 -translate-y-1/4"
+        >
           <div class="relative">
             <!-- Efecto resplandor -->
-            <div class="absolute -inset-1 bg-blue-500/30 rounded-full blur-md animate-pulse-slow"></div>
-            <div class="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold rounded-full py-1.5 px-4 shadow-lg">
+            <div
+              class="absolute -inset-1 bg-blue-500/30 rounded-full blur-md animate-pulse-slow"
+            >
+            </div>
+            <div
+              class="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold rounded-full py-1.5 px-4 shadow-lg"
+            >
               <span class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-3.5 w-3.5 mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  ></path>
                 </svg>
                 Destacado
               </span>
             </div>
           </div>
         </div>
-        
+
         <!-- Imagen para móvil con efectos visuales mejorados -->
         <div class="relative overflow-hidden h-[200px]">
-          <Image 
-            src={ColegioIngenieros} 
-            alt="Colegio de Ingenieros de Ica" 
+          <Image
+            src={ColegioIngenieros}
+            alt="Colegio de Ingenieros de Ica"
             class="w-full h-full object-cover transform scale-[1.01] filter saturate-[1.05] contrast-[1.02]"
             loading="eager"
           />
-          
+
           <!-- Overlay y textura para móvil mejorados -->
-          <div class="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-blue-800/20 to-transparent z-10 opacity-40 mix-blend-overlay"></div>
-          <div class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%270 0 2000 1500%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cdefs%3E%3Cpattern id=%27a%27 patternUnits=%27userSpaceOnUse%27 width=%2720%27 height=%2720%27 patternTransform=%27scale(50) rotate(0)%27%3E%3Crect x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27 fill=%27%23ffffff%27/%3E%3Ccircle cx=%2710%27 cy=%2710%27 r=%272%27 fill=%27%23f7fafc%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23a)%27/%3E%3C/svg%3E')] opacity-15 z-10 mix-blend-overlay"></div>
-          
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-blue-800/20 to-transparent z-10 opacity-40 mix-blend-overlay"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%270 0 2000 1500%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cdefs%3E%3Cpattern id=%27a%27 patternUnits=%27userSpaceOnUse%27 width=%2720%27 height=%2720%27 patternTransform=%27scale(50) rotate(0)%27%3E%3Crect x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27 fill=%27%23ffffff%27/%3E%3Ccircle cx=%2710%27 cy=%2710%27 r=%272%27 fill=%27%23f7fafc%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27url(%23a)%27/%3E%3C/svg%3E')] opacity-15 z-10 mix-blend-overlay"
+          >
+          </div>
+
           <!-- Badge de fecha en la imagen -->
           <div class="absolute bottom-3 left-3 z-20">
-            <div class="bg-white/90 backdrop-filter backdrop-blur-sm text-blue-700 px-3 py-1 rounded-lg shadow-lg border border-blue-100/70 text-xs font-semibold">
+            <div
+              class="bg-white/90 backdrop-filter backdrop-blur-sm text-blue-700 px-3 py-1 rounded-lg shadow-lg border border-blue-100/70 text-xs font-semibold"
+            >
               21 junio 2025
             </div>
           </div>
         </div>
-        
+
         <!-- Card con contador para móvil con mejor diseño -->
         <div class="p-6 bg-white/95 border-t border-blue-50">
-          <h3 class="font-bold text-center text-gray-800 mb-4 text-lg">Faltan para el registro para el evento</h3>
-          <CountdownTimer targetDate="2025-05-30T08:00:00" />
-        
-        <!-- Información del evento en móvil con mejor diseño y presentación -->
-        <div class="mt-6 relative overflow-hidden">
-          <!-- Efecto de borde brillante mejorado -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-400 to-blue-500 rounded-xl opacity-30 blur-sm"></div>
-          
-          <div class="relative bg-white bg-opacity-95 p-5 rounded-xl border border-blue-100/70 backdrop-blur-sm shadow-sm">
-            <!-- Título del evento pequeño -->
-            <div class="mb-4">
-              <div class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded mb-1">Información del evento</div>
+          <h3 class="font-bold text-center text-gray-800 mb-4 text-lg">
+            Faltan para el evento
+          </h3>
+          <!-- Junio 21 -->
+          <CountdownTimer targetDate="2025-06-21T08:00:00" />
+
+          <!-- Información del evento en móvil con mejor diseño y presentación -->
+          <div class="mt-6 relative overflow-hidden">
+            <!-- Efecto de borde brillante mejorado -->
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-400 to-blue-500 rounded-xl opacity-30 blur-sm"
+            >
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <!-- Fecha del evento con icono mejorado -->
-              <div class="flex items-center">
-                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Fecha</div>
-                  <div class="text-sm text-gray-800 font-bold">21 de junio, 2025</div>
+
+            <div
+              class="relative bg-white bg-opacity-95 p-5 rounded-xl border border-blue-100/70 backdrop-blur-sm shadow-sm"
+            >
+              <!-- Título del evento pequeño -->
+              <div class="mb-4">
+                <div
+                  class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded mb-1"
+                >
+                  Información del evento
                 </div>
               </div>
-              
-              <!-- Horario del evento con icono mejorado -->
-              <div class="flex items-center">
-                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Fecha del evento con icono mejorado -->
+                <div class="flex items-center">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-blue-600 font-medium uppercase tracking-wide"
+                    >
+                      Fecha
+                    </div>
+                    <div class="text-sm text-gray-800 font-bold">
+                      21 de junio, 2025
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Horario</div>
-                  <div class="text-sm text-gray-800 font-bold">08:00 - 17:00</div>
+
+                <!-- Horario del evento con icono mejorado -->
+                <div class="flex items-center">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-blue-600 font-medium uppercase tracking-wide"
+                    >
+                      Horario
+                    </div>
+                    <div class="text-sm text-gray-800 font-bold">
+                      08:00 - 17:00
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
-              <!-- Lugar del evento con icono de ubicación -->
-              <div class="flex items-center">
-                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Ubicación</div>
-                  <div class="text-sm text-gray-800 font-bold">Colegio de Ingenieros</div>
+
+                <!-- Lugar del evento con icono de ubicación -->
+                <div class="flex items-center">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700 rounded-lg shadow-inner mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-blue-600 font-medium uppercase tracking-wide"
+                    >
+                      Ubicación
+                    </div>
+                    <div class="text-sm text-gray-800 font-bold">
+                      Colegio de Ingenieros
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
