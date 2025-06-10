@@ -30,13 +30,13 @@ const socialLinks: SocialLink[] = [
     {socialLinks.map((social) => (
       <a 
         href={social.url} 
-        class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-blue-600 transition-all hover:bg-blue-600 hover:text-white hover:shadow-md group"
+        class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-blue-600 transition-all hover:bg-blue-600 hover:text-white hover:shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-opacity-75"
         aria-label={`Visitar ${social.platform}`}
       >
         <span class="sr-only">{social.platform}</span>
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          class="h-5 w-5 transform transition-transform duration-300 group-hover:scale-110" 
+          class="h-5 w-5 transform transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg" 
           fill="currentColor" 
           viewBox="0 0 24 24"
           set:html={social.icon}
@@ -47,7 +47,7 @@ const socialLinks: SocialLink[] = [
 </div>
 
 <style>
-  a:hover {
+  a:hover .group-hover\:scale-110 {
     animation: pulseGlow 1.5s infinite;
   }
 </style>
