@@ -37,10 +37,10 @@ export const ponentes: Ponente[] = [
     redesSociales: {
       linkedin: "https://www.linkedin.com/in/renzodlcu",
     },
-    temaCharla: "Big Data",
+    temaCharla: "Manejo de datos con PySpark",
     horaCharla: "10:00 AM",
     descripcionCharla:
-      "Exploraremos cómo las empresas pueden implementar soluciones de inteligencia artificial para optimizar procesos y tomar decisiones basadas en datos. Se presentarán casos prácticos y recomendaciones para la integración exitosa de la IA en cualquier organización.",
+      "Aprende a manejar datos con PySpark, una herramienta poderosa para el análisis de datos.",
     orden: 1,
   },
   {
@@ -48,15 +48,15 @@ export const ponentes: Ponente[] = [
     nombre: "Luis Alberto Tasayco Munayco",
     cargo: "Senior Infrastructure & Systems Engineering",
     empresa: "Prima AFP / Pacífico Seguros",
-    bio: "",
+    bio: "Profesional de TI con conocimiento en Metodologia Agil y Gestion de Servicios, Gestion de Entornos de Infraestructura y Ciberseguridad Middleware.",
     foto: LuisTasayco,
     redesSociales: {
       linkedin: "https://www.linkedin.com/in/luis-alberto-tasayco-munayco",
     },
-    temaCharla: "Ciberseguridad",
+    temaCharla: "Gestión de vulnerabilidades sobre la infraestructura empresarial y en sus aplicaciones",
     horaCharla: "11:30 AM",
     descripcionCharla:
-      "Descubre cómo la tecnología blockchain está revolucionando industrias tradicionales como la agricultura, logística y seguros. Presentaremos casos reales de implementación en Perú y las oportunidades de desarrollo profesional en este campo emergente.",
+      "Aprende a gestionar vulnerabilidades sobre la infraestructura empresarial y en sus aplicaciones.",
     orden: 2,
   },
   {
@@ -69,10 +69,10 @@ export const ponentes: Ponente[] = [
     redesSociales: {
       linkedin: "www.linkedin.com/in/kevin-muñoz-torres-9498061a3",
     },
-    temaCharla: "Inteligencia Artificial",
+    temaCharla: "RNNs a Transformers: Cómo el Model Context Protocol integra la IA en soluciones reales.",
     horaCharla: "01:00 PM",
     descripcionCharla:
-      "Analizaremos los retos de seguridad que enfrentan las organizaciones durante su proceso de transformación digital y las mejores prácticas para proteger datos e infraestructuras críticas. Incluiremos demostraciones de ataques comunes y cómo prevenirlos.",
+      "Descubre como el Model Context Protocol (MCP) integra la IA en la vida real.",
     orden: 3,
   },
   {
@@ -83,12 +83,30 @@ export const ponentes: Ponente[] = [
     bio: "Director Pro Secretario Colegio de Ingenieros del Perú C.D Ica",
     foto: GerardoCayo,
     redesSociales: {
-      linkedin: "https://www.linkedin.com/in/ggcayo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+      linkedin: "https://www.linkedin.com/in/ggcayo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
-    temaCharla: "Análisis de Datos",
+    temaCharla: "Implementación de Lakehouse en Microsoft Fabric.",
     horaCharla: "03:00 PM",
     descripcionCharla:
-      "Compartiremos experiencias reales implementando culturas DevOps en entornos empresariales tradicionales. Abordaremos desafíos comunes, métricas de éxito y herramientas que facilitan la adopción de estas prácticas para mejorar la entrega continua de software.",
+      "Descubre como implementar Lakehouse en Microsoft Fabric.",
+    orden: 4,
+  },
+  /*
+  {
+    id: "yvan-levano",
+    nombre: "Yvan Francisco Lévano Casas",
+    cargo: "Gerente de Seguridad de la Información",
+    empresa: "",
+    bio: "",
+    foto: ,
+    redesSociales: {
+      linkedin: "https://www.linkedin.com/in/yvanlevanocasas"
+    },
+    temaCharla: "",
+    horaCharla: "03:00 PM",
+    descripcionCharla:
+      "",
     orden: 4,
   }
+  */
 ];
