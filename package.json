@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@iconify/utils": "^2.3.0",
     "@tailwindcss/vite": "^4.1.6",
     "astro": "^5.7.12",
