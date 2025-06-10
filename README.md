@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![InnovaTech Logo](public/logo.png)
+![InnovaTech Logo](public/favicon.jpeg)
 
 [![Astro](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
