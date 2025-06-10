@@ -1,48 +1,126 @@
-# Astro Starter Kit: Basics
+# 🚀 InnovaTech Ica - Landing Page
 
-```sh
-pnpm create astro@latest -- --template basics
+<div align="center">
+
+![InnovaTech Logo](public/logo.png)
+
+[![Astro](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=white)](https://pnpm.io)
+
+</div>
+
+## 📋 Descripción
+Landing Page desarrollada con Astro, un moderno generador de sitios estáticos que ofrece un rendimiento óptimo y una experiencia de desarrollo excepcional. Este proyecto representa la presencia digital de InnovaTech Ica, una empresa líder en soluciones tecnológicas innovadoras.
+
+### ✨ Características Principales
+- ⚡ Rendimiento ultrarrápido
+- 📱 Diseño responsive
+- 🎨 Interfaz moderna y atractiva
+- 🔍 SEO optimizado
+- 🚀 Despliegue automático
+- 🔒 Seguridad mejorada
+
+## 🛠️ Stack Tecnológico
+
+### Frontend
+- **Astro** - Framework para sitios estáticos de alto rendimiento
+- **TypeScript** - Tipado estático para JavaScript
+- **TailwindCSS** - Framework CSS utilitario
+- **Alpine.js** - Framework JavaScript ligero para interactividad
+
+### Herramientas de Desarrollo
+- **PNPM** - Gestor de paquetes rápido y eficiente
+- **ESLint** - Linter para JavaScript/TypeScript
+- **Prettier** - Formateador de código
+- **GitHub Actions** - CI/CD y despliegue automático
+
+## 🚀 Requisitos Previos
+- Node.js (v18.0.0 o superior)
+- PNPM (v8.0.0 o superior)
+- Git
+
+## 📦 Instalación y Configuración
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/InnovaTechGroupUNICA/InnovaTechIca.github.io.git
+
+# Navegar al directorio del proyecto
+cd InnovaTechIca.github.io
+
+# Instalar dependencias
+pnpm install
+
+# Iniciar servidor de desarrollo
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+## 🏗️ Arquitectura del Proyecto
+```
 /
-├── public/
-│   └── favicon.svg
+├── public/              # Archivos estáticos
+│   ├── images/         # Imágenes optimizadas
+│   └── fonts/          # Fuentes personalizadas
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/     # Componentes reutilizables
+│   │   ├── ui/        # Componentes de UI básicos
+│   │   └── sections/  # Secciones de la landing page
+│   ├── layouts/       # Plantillas de diseño
+│   ├── pages/         # Páginas de la aplicación
+│   ├── styles/        # Estilos globales
+│   └── utils/         # Utilidades y helpers
+├── astro.config.mjs   # Configuración de Astro
+├── tailwind.config.js # Configuración de Tailwind
+└── package.json       # Dependencias y scripts
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## ⚙️ Scripts Disponibles
 
-## 🧞 Commands
+| Comando | Descripción |
+|---------|-------------|
+| `pnpm dev` | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build` | Genera la versión de producción en `./dist/` |
+| `pnpm preview` | Previsualiza la versión de producción localmente |
+| `pnpm astro check` | Ejecuta verificaciones de tipos y validaciones |
+| `pnpm astro add` | Añade integraciones y adaptadores |
+| `pnpm lint` | Ejecuta el linter para verificar el código |
+| `pnpm format` | Formatea el código según las reglas establecidas |
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Despliegue
+El sitio está configurado para desplegarse automáticamente en GitHub Pages cuando se hace push a la rama principal. El proceso de CI/CD incluye:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+1. Verificación de tipos
+2. Linting del código
+3. Build de producción
+4. Despliegue automático
 
-## 👀 Want to learn more?
+## 📚 Documentación y Recursos
+- [Documentación de Astro](https://docs.astro.build)
+- [Guía de Estilo](https://docs.astro.build/en/guides/styling/)
+- [Referencia de Componentes](https://docs.astro.build/en/reference/api-reference/)
+- [Guía de Contribución](./CONTRIBUTING.md)
+- [Política de Código de Conducta](./CODE_OF_CONDUCT.md)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🤝 Contribución
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### Guías de Contribución
+- Sigue las convenciones de código establecidas
+- Añade tests para nuevas funcionalidades
+- Actualiza la documentación según sea necesario
+- Asegúrate de que todos los tests pasen
+
+## 📞 Contacto y Soporte
+- 🌐 Sitio Web: [innovatech.github.io](https://innovatech.github.io)
+- 📧 Email: InnovaTechGroupUNICA@gmail.com
+
+## 🙏 Agradecimientos
+- Equipo de desarrollo de Astro
+- Comunidad de código abierto
+- Todos los contribuidores del proyecto
