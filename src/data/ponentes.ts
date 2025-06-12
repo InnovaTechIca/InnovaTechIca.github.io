@@ -70,7 +70,7 @@ export const ponentes: Ponente[] = [
     redesSociales: {
       linkedin: "www.linkedin.com/in/kevin-muñoz-torres-9498061a3",
     },
-    temaCharla: "RNNs a Transformers: Cómo el Model Context Protocol integra la IA en soluciones reales.",
+    temaCharla: "De RNNs a Transformers… y cómo el Model Context Protocol integra la IA en soluciones reales",
     horaCharla: "01:00 PM",
     descripcionCharla:
       "Descubre como el Model Context Protocol (MCP) integra la IA en la vida real.",
@@ -97,7 +97,7 @@ export const ponentes: Ponente[] = [
     nombre: "Yvan Francisco Lévano Casas",
     cargo: "Gerente de Seguridad de la Información",
     empresa: "",
-    bio: "",
+    bio: "Profesional especializado  en Seguridad de la Información con más de 13 años de experiencia en el sector financiero y medios de pago. Lideró procesos de certificación en PCI-DSS. Tiene experiencia como docente universitario e instructor en cursos de certificación internacional.",
     foto: YvanLevano,
     redesSociales: {
       linkedin: "https://www.linkedin.com/in/yvanlevanocasas"

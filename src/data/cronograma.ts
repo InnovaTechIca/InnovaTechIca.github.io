@@ -117,5 +117,5 @@ export const infoEvento = {
   fecha: "21 de junio de 2025",
   lugar: "Colegio de Ingenieros de Ica",
   horaInicio: "08:00 a.m.",
-  horaFin: "05:00 p.m."
+  horaFin: "06:00 p.m."
 };
