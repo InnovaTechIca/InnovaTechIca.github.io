@@ -3,6 +3,7 @@ import KevinMunoz from "../assets/ponentes/KEVIN.jpg";
 import LuisTasayco from "../assets/ponentes/LUIS.jpg";
 import GerardoCayo from "../assets/ponentes/GERMAN.jpg";
 import RenzoDeLaCruz from "../assets/ponentes/RENZO.jpg";
+import YvanLevano from "../assets/ponentes/YVAN.jpg";
 import type { ImageMetadata } from "astro";
 
 // Definición del tipo para los ponentes del evento
@@ -91,22 +92,20 @@ export const ponentes: Ponente[] = [
       "Descubre como implementar Lakehouse en Microsoft Fabric.",
     orden: 4,
   },
-  /*
   {
     id: "yvan-levano",
     nombre: "Yvan Francisco Lévano Casas",
     cargo: "Gerente de Seguridad de la Información",
     empresa: "",
     bio: "",
-    foto: ,
+    foto: YvanLevano,
     redesSociales: {
       linkedin: "https://www.linkedin.com/in/yvanlevanocasas"
     },
-    temaCharla: "",
+    temaCharla: "De las aulas a Ciber Guardian: Talento para proteger el futuro",
     horaCharla: "03:00 PM",
     descripcionCharla:
       "",
-    orden: 4,
+    orden: 5,
   }
-  */
 ];
