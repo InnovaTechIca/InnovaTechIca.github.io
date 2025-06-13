@@ -1,11 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Proximamente from '../components/Proximamente.astro';
+import RegistroHeader from '../ui/registro/RegistroHeader.astro';
+import RegistroContent from '../ui/registro/RegistroContent.astro';
+import RegistroFAQ from '../ui/registro/RegistroFAQ.astro';
 ---
 
-<Layout title="Registro | InnovaTech Ica 2025">
-  <Proximamente
-    title="Registro"
-    description="El formulario de registro estará disponible próximamente."
-  />
+<Layout 
+  title="Registro | InnovaTech Ica 2025"
+  description="Regístrate para InnovaTech Ica 2025, el evento tecnológico más importante de la región. 9 horas de contenido, paquetes con certificado incluido y networking con expertos."
+  keywords="registro InnovaTech, evento tecnológico Ica, entradas evento, certificado participación"
+>
+  <main class="min-h-screen">
+    <!-- Contenedor principal con padding top para el navbar -->
+    <div class="pt-20">
+      <!-- Header de la página -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <RegistroHeader />
+      </div>
+      
+      <!-- Contenido principal de registro -->
+      <RegistroContent />
+      
+      <!-- Preguntas frecuentes -->
+      <RegistroFAQ />
+    </div>
+  </main>
 </Layout>

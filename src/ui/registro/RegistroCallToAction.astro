@@ -1,0 +1,161 @@
+---
+// Componente de llamada a la acción para registro
+---
+
+<div
+  class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100 relative overflow-hidden group"
+>
+  <!-- Efecto de brillo en hover -->
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-sky-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+  >
+  </div>
+
+  <div class="relative z-10">
+    <!-- Header del formulario -->
+    <div class="text-center mb-10">
+      <div
+        class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 via-blue-200 to-sky-200 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-10 w-10 text-blue-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+          ></path>
+        </svg>
+      </div>
+
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        ¡Asegura tu lugar!
+      </h2>
+      <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+        Regístrate ahora y adquiere tu entrada para el evento más importante de
+        tecnología en Ica.
+        <span class="text-blue-600 font-semibold"
+          >¡Paquetes con certificado incluido disponibles!</span
+        >
+      </p>
+    </div>
+    <!-- Lista de beneficios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+      <div
+        class="flex items-start space-x-3 p-3 rounded-xl hover:bg-blue-50/50 transition-colors duration-200"
+      >
+        <div
+          class="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mt-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 text-sm">
+            Certificado Oficial
+          </h3>
+          <p class="text-gray-600 text-xs">
+            Certificado válido de participación
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="flex items-start space-x-3 p-3 rounded-xl hover:bg-blue-50/50 transition-colors duration-200"
+      >
+        <div
+          class="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mt-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 text-sm">
+            Networking exclusivo
+          </h3>
+          <p class="text-gray-600 text-xs">
+            Con líderes tech de toda la región y entusiastas de la tecnología
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de registro -->
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeRKLntstbofjfjgkCXhglaxathDv58uOBx3TueVtfXArz_vQ/viewform"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group relative w-full inline-flex items-center justify-center px-8 py-5 rounded-2xl bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 overflow-hidden transform hover:scale-[1.02] active:scale-[0.98]"
+    >
+      <span class="relative z-10 flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 mr-3 group-hover:animate-pulse"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          ></path>
+        </svg>
+        Comprar Entradas Ahora
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </span>
+
+      <!-- Efecto de brillo animado -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+      </div>
+
+      <!-- Efecto de ondas -->
+      <div
+        class="absolute inset-0 rounded-2xl border-2 border-white/20 group-hover:animate-ping"
+      >
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+---
+import Image from "astro/components/Image.astro";
+
+// Componente que muestra los SVG con el QR sobre el robot MIA
+---
+
+<div class="relative group mt-20">
+  <!-- Robot y QR -->
+  <div class="relative flex flex-col items-center -mb-2">
+    <!-- Robot MIA -->
+    <Image
+      src="/src/assets/MIA.svg"
+      alt="Robot MIA - Asistente virtual"
+      class="w-48 h-48 sm:w-56 sm:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
+      loading="lazy"
+      width={384}
+      height={384}
+    />
+    <!-- Código QR sobre el robot -->
+    <div
+      class="absolute -top-32 bg-white p-4 lg:p-6 rounded-2xl shadow-lg border border-gray-200 hover-lift z-10"
+    >
+      <Image
+        src="/src/assets/inscripcion.svg"
+        alt="Código QR para registro rápido"
+        class="w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 xl:w-40 xl:h-40"
+        loading="lazy"
+        width={160}
+        height={160}
+      />
+    </div>
+  </div>
+  <!-- Texto descriptivo simple y claro -->
+  <div class="text-center">
+    <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+      <span
+        class="bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent"
+      >
+        Registro rápido y fácil
+      </span>
+    </h3>
+    <p class="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
+      Escanea el código QR con la cámara de tu móvil para registrarte al evento.
+      <span class="font-medium text-blue-600">¡Solo toma unos segundos!</span>
+    </p>
+    <!-- Pasos simples -->
+    <div class="flex items-center justify-center gap-6 mb-8">
+      <div class="flex items-center space-x-2 text-sm text-gray-600">
+        <div
+          class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center"
+        >
+          <span class="text-xs font-bold text-blue-600">1</span>
+        </div>
+        <span>Escanea QR</span>
+      </div>
+
+      <div class="w-12 h-px bg-gray-300"></div>
+
+      <div class="flex items-center space-x-2 text-sm text-gray-600">
+        <div
+          class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center"
+        >
+          <span class="text-xs font-bold text-green-600">2</span>
+        </div>
+        <span>Completa datos</span>
+      </div>
+
+      <div class="w-12 h-px bg-gray-300"></div>
+
+      <div class="flex items-center space-x-2 text-sm text-gray-600">
+        <div
+          class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center"
+        >
+          <span class="text-xs font-bold text-purple-600">3</span>
+        </div>
+        <span>¡Listo!</span>
+      </div>
+    </div>
+    <!-- Beneficios -->
+    <div class="flex items-center justify-center space-x-8 text-sm mb-8">
+      <div class="flex items-center space-x-2 text-green-700">
+        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+        <span class="font-medium">Rápido</span>
+      </div>
+      <div class="flex items-center space-x-2 text-blue-700">
+        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+        <span class="font-medium">Seguro</span>
+      </div>
+    </div>
+
+    <!-- Alternativa simple -->
+    <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+      <p class="text-sm text-gray-600 text-center">
+        ¿No puedes escanear? Usa el
+        <span class="font-medium text-blue-600">botón de Comprar Entradas Ahora</span>
+        que encontrarás en la parte superior de la página o a la izquierda.
+      </p>
+    </div>
+  </div>
+</div>
