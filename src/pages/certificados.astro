@@ -1,11 +1,33 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Proximamente from "../components/Proximamente.astro";
+import Layout from '../layouts/Layout.astro';
+import CertificadosHeader from '../ui/certificados/CertificadosHeader.astro';
+import PaquetesCertificados from '../ui/certificados/PaquetesCertificados.astro';
+import PromocionCIP from '../ui/certificados/PromocionCIP.astro';
+import CertificadosCallToAction from '../ui/certificados/CertificadosCallToAction.astro';
 ---
 
-<Layout title="Certificados | InnovaTech Ica 2025">
-  <Proximamente
-    title="Certificados"
-    description="Los certificados estarán disponibles próximamente."
-  />
+<Layout 
+  title="Certificados | InnovaTech Ica 2025"
+  description="Obtén certificados oficiales de tu participación en InnovaTech Ica 2025. Paquetes con certificado incluido y promociones especiales con el CIP."
+  keywords="certificados InnovaTech, certificado CIP, certificado asistencia, paquetes certificación"
+>
+  <main class="min-h-screen">
+    <!-- Contenedor principal con padding top para el navbar -->
+    <div class="pt-20">
+      <!-- Header de la página -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <CertificadosHeader />
+      </div>
+      
+      <!-- Promociones especiales con CIP -->
+      <PromocionCIP />
+      
+      <!-- Paquetes de certificados -->
+      <PaquetesCertificados />
+      
+      
+      <!-- Call to action final -->
+      <CertificadosCallToAction />
+    </div>
+  </main>
 </Layout>
