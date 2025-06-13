@@ -39,7 +39,7 @@ export const ponentes: Ponente[] = [
       linkedin: "https://www.linkedin.com/in/renzodlcu",
     },
     temaCharla: "Manejo de datos con PySpark",
-    horaCharla: "04:15 AM",
+    horaCharla: "04:15 PM",
     descripcionCharla:
       "Aprende a manejar datos con PySpark, una herramienta poderosa para el análisis de datos.",
     orden: 5,
