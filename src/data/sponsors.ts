@@ -3,7 +3,7 @@ import LogoColegio from '../assets/sponsors/ci_ica.png';
 import LogoIndra from '../assets/sponsors/indra.jpg';
 import LogoCajaMunicipal from '../assets/sponsors/caja_ica.png';
 import LogoDevHouse from '../assets/sponsors/devhouse.jpg';
-import LogoRumba77 from '../assets/sponsors/rumba77.svg';
+// Nota: El SVG de Rumba77 ahora está en public/assets/sponsors/ y se referencia directamente en el componente
 import type { ImageMetadata } from 'astro';
 
 // Definición del tipo para los sponsors del evento
