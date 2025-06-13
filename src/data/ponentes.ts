@@ -39,10 +39,10 @@ export const ponentes: Ponente[] = [
       linkedin: "https://www.linkedin.com/in/renzodlcu",
     },
     temaCharla: "Manejo de datos con PySpark",
-    horaCharla: "10:00 AM",
+    horaCharla: "04:15 AM",
     descripcionCharla:
       "Aprende a manejar datos con PySpark, una herramienta poderosa para el análisis de datos.",
-    orden: 1,
+    orden: 5,
   },
   {
     id: "luis-tasayco",
@@ -55,10 +55,10 @@ export const ponentes: Ponente[] = [
       linkedin: "https://www.linkedin.com/in/luis-alberto-tasayco-munayco",
     },
     temaCharla: "Gestión de vulnerabilidades sobre la infraestructura empresarial y en sus aplicaciones",
-    horaCharla: "11:30 AM",
+    horaCharla: "02:45 PM",
     descripcionCharla:
       "Aprende a gestionar vulnerabilidades sobre la infraestructura empresarial y en sus aplicaciones.",
-    orden: 2,
+    orden: 4,
   },
   {
     id: "kevin-munoz-torres",
@@ -71,7 +71,7 @@ export const ponentes: Ponente[] = [
       linkedin: "www.linkedin.com/in/kevin-muñoz-torres-9498061a3",
     },
     temaCharla: "De RNNs a Transformers… y cómo el Model Context Protocol integra la IA en soluciones reales",
-    horaCharla: "01:00 PM",
+    horaCharla: "12:00 PM",
     descripcionCharla:
       "Descubre como el Model Context Protocol (MCP) integra la IA en la vida real.",
     orden: 3,
@@ -87,10 +87,10 @@ export const ponentes: Ponente[] = [
       linkedin: "https://www.linkedin.com/in/ggcayo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     temaCharla: "Implementación de Lakehouse en Microsoft Fabric.",
-    horaCharla: "03:00 PM",
+    horaCharla: "10:30 AM",
     descripcionCharla:
       "Descubre como implementar Lakehouse en Microsoft Fabric.",
-    orden: 4,
+    orden: 2,
   },
   {
     id: "yvan-levano",
@@ -103,9 +103,9 @@ export const ponentes: Ponente[] = [
       linkedin: "https://www.linkedin.com/in/yvanlevanocasas"
     },
     temaCharla: "De las aulas a Ciber Guardian: Talento para proteger el futuro",
-    horaCharla: "03:00 PM",
+    horaCharla: "09:00 AM",
     descripcionCharla:
       "",
-    orden: 5,
+    orden: 1,
   }
 ];
