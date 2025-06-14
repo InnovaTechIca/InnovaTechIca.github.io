@@ -31,40 +31,110 @@ const units = [
 </div>
 
 <script define:vars={{ targetDate }}>
+  // Variable para almacenar el intervalo
+  let countdownInterval;
+  
   // Función para actualizar el contador
   function updateCountdown() {
-    const targetTime = new Date(targetDate).getTime();
-    const now = new Date().getTime();
-    const difference = targetTime - now;
+    try {
+      const targetTime = new Date(targetDate).getTime();
+      const now = new Date().getTime();
+      const difference = targetTime - now;
 
-    // Calcular días, horas, minutos y segundos
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      // Si ya pasó el evento, mostrar ceros y detener el contador
+      if (difference < 0) {
+        const elements = ['days', 'hours', 'minutes', 'seconds'];
+        elements.forEach(elementId => {
+          const element = document.getElementById(elementId);
+          if (element) {
+            element.textContent = '00';
+          }
+        });
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+        }
+        return;
+      }
 
-    // Actualizar el DOM
-    document.getElementById("days").innerText = days
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("hours").innerText = hours
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("minutes").innerText = minutes
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("seconds").innerText = seconds
-      .toString()
-      .padStart(2, "0");
+      // Calcular días, horas, minutos y segundos
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      // Actualizar el DOM de forma segura
+      const daysElement = document.getElementById("days");
+      const hoursElement = document.getElementById("hours");
+      const minutesElement = document.getElementById("minutes");
+      const secondsElement = document.getElementById("seconds");
+
+      if (daysElement) {
+        daysElement.textContent = days.toString().padStart(2, "0");
+      }
+      if (hoursElement) {
+        hoursElement.textContent = hours.toString().padStart(2, "0");
+      }
+      if (minutesElement) {
+        minutesElement.textContent = minutes.toString().padStart(2, "0");
+      }
+      if (secondsElement) {
+        secondsElement.textContent = seconds.toString().padStart(2, "0");
+      }
+    } catch (error) {
+      console.error('Error updating countdown:', error);
+    }
   }
 
-  // Actualizar inicialmente
-  updateCountdown();
+  // Función para inicializar el contador
+  function initCountdown() {
+    // Verificar que el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCountdown);
+      return;
+    }
 
-  // Actualizar cada segundo
-  setInterval(updateCountdown, 1000);
+    // Verificar que los elementos existan
+    const requiredElements = ['days', 'hours', 'minutes', 'seconds'];
+    const allElementsExist = requiredElements.every(id => 
+      document.getElementById(id) !== null
+    );
+
+    if (!allElementsExist) {
+      // Intentar de nuevo en unos milisegundos
+      setTimeout(initCountdown, 100);
+      return;
+    }
+
+    // Actualizar inicialmente
+    updateCountdown();
+
+    // Limpiar cualquier intervalo anterior
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+    }
+
+    // Crear nuevo intervalo
+    countdownInterval = setInterval(updateCountdown, 1000);
+  }
+
+  // Manejar cambios de visibilidad para ahorrar recursos en móvil
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      // Pausar el contador cuando la página no está visible
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+      }
+    } else {
+      // Reanudar el contador cuando la página vuelve a ser visible
+      updateCountdown();
+      countdownInterval = setInterval(updateCountdown, 1000);
+    }
+  });
+
+  // Inicializar el contador
+  initCountdown();
 </script>
 
 <style>

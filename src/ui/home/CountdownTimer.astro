@@ -1,16 +1,17 @@
 ---
 const { targetDate } = Astro.props;
+// Generar un ID único para evitar conflictos
+const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div class="countdown-container">
+<div class="countdown-container" data-countdown-id={uniqueId} data-loading="true">
   <div class="grid grid-cols-4 gap-2 md:gap-3 text-center">
     <div class="countdown-item">
       <div
         class="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl shadow-md p-2 md:p-3 border border-blue-100/50 transform transition-all hover:scale-105 hover:shadow-lg hover:border-blue-200 duration-300"
       >
         <span
-          id="days"
-          class="block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700"
+          class={`countdown-days-${uniqueId} block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700`}
           >00</span
         >
         <span class="text-xs md:text-sm font-medium text-gray-600">Días</span>
@@ -21,8 +22,7 @@ const { targetDate } = Astro.props;
         class="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl shadow-md p-2 md:p-3 border border-blue-100/50 transform transition-all hover:scale-105 hover:shadow-lg hover:border-blue-200 duration-300"
       >
         <span
-          id="hours"
-          class="block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700"
+          class={`countdown-hours-${uniqueId} block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700`}
           >00</span
         >
         <span class="text-xs md:text-sm font-medium text-gray-600">Horas</span>
@@ -33,8 +33,7 @@ const { targetDate } = Astro.props;
         class="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl shadow-md p-2 md:p-3 border border-blue-100/50 transform transition-all hover:scale-105 hover:shadow-lg hover:border-blue-200 duration-300"
       >
         <span
-          id="minutes"
-          class="block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700"
+          class={`countdown-minutes-${uniqueId} block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700`}
           >00</span
         >
         <span class="text-xs md:text-sm font-medium text-gray-600">Min</span>
@@ -45,8 +44,7 @@ const { targetDate } = Astro.props;
         class="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl shadow-md p-2 md:p-3 border border-blue-100/50 transform transition-all hover:scale-105 hover:shadow-lg hover:border-blue-200 duration-300"
       >
         <span
-          id="seconds"
-          class="block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700"
+          class={`countdown-seconds-${uniqueId} block text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-blue-700`}
           >00</span
         >
         <span class="text-xs md:text-sm font-medium text-gray-600">Seg</span>
@@ -55,39 +53,356 @@ const { targetDate } = Astro.props;
   </div>
 </div>
 
-<script define:vars={{ targetDate }}>
-  // Función para actualizar el contador
-  function updateCountdown() {
-    const targetTime = new Date(targetDate).getTime();
-    const now = new Date().getTime();
-    const difference = targetTime - now;
-
-    // Calcular días, horas, minutos y segundos
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    // Actualizar el DOM
-    document.getElementById("days").innerText = days
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("hours").innerText = hours
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("minutes").innerText = minutes
-      .toString()
-      .padStart(2, "0");
-    document.getElementById("seconds").innerText = seconds
-      .toString()
-      .padStart(2, "0");
+<script define:vars={{ targetDate, uniqueId }}>
+  // Variables para el contador
+  let countdownInterval;
+  let isVisible = true;
+  let retryCount = 0;
+  const maxRetries = 10;
+  
+  // Debug para móviles
+  const DEBUG = true;
+  function debugLog(message, data) {
+    if (DEBUG && console) {
+      console.log(`[Countdown-${uniqueId}] ${message}`, data || '');
+    }
   }
 
-  // Actualizar inicialmente
-  updateCountdown();
+  // Función para detectar dispositivos móviles
+  function isMobileDevice() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           window.innerWidth < 768;
+    debugLog('Is mobile device:', isMobile);
+    return isMobile;
+  }
 
-  // Actualizar cada segundo
-  setInterval(updateCountdown, 1000);
+  // Función para obtener elementos del DOM usando clases únicas
+  function getCountdownElements() {
+    const container = document.querySelector(`[data-countdown-id="${uniqueId}"]`);
+    if (!container) {
+      debugLog('Container not found for ID:', uniqueId);
+      return null;
+    }
+
+    const elements = {
+      days: container.querySelector(`.countdown-days-${uniqueId}`),
+      hours: container.querySelector(`.countdown-hours-${uniqueId}`),
+      minutes: container.querySelector(`.countdown-minutes-${uniqueId}`),
+      seconds: container.querySelector(`.countdown-seconds-${uniqueId}`)
+    };
+
+    debugLog('Elements found:', {
+      days: !!elements.days,
+      hours: !!elements.hours,
+      minutes: !!elements.minutes,
+      seconds: !!elements.seconds
+    });
+
+    return elements;
+  }
+
+  // Función para actualizar el contador
+  function updateCountdown() {
+    try {
+      const elements = getCountdownElements();
+      if (!elements || !elements.days || !elements.hours || !elements.minutes || !elements.seconds) {
+        debugLog('Elements not ready, retrying...', retryCount);
+        if (retryCount < maxRetries) {
+          retryCount++;
+          setTimeout(() => initCountdown(), 500);
+        }
+        return;
+      }
+
+      const targetTime = new Date(targetDate).getTime();
+      const now = new Date().getTime();
+      const difference = targetTime - now;
+
+      debugLog('Time calculation:', {
+        targetDate,
+        targetTime,
+        now,
+        difference
+      });
+
+      // Si ya pasó el evento, mostrar ceros y detener el contador
+      if (difference < 0) {
+        debugLog('Event has passed, showing zeros');
+        elements.days.textContent = '00';
+        elements.hours.textContent = '00';
+        elements.minutes.textContent = '00';
+        elements.seconds.textContent = '00';
+        
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+        return;
+      }
+
+      // Calcular días, horas, minutos y segundos
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      debugLog('Calculated values:', { days, hours, minutes, seconds });
+
+      // Actualizar el DOM de forma segura
+      const values = [
+        { element: elements.days, value: days.toString().padStart(2, "0") },
+        { element: elements.hours, value: hours.toString().padStart(2, "0") },
+        { element: elements.minutes, value: minutes.toString().padStart(2, "0") },
+        { element: elements.seconds, value: seconds.toString().padStart(2, "0") }
+      ];
+
+      values.forEach(({ element, value }, index) => {
+        if (element && element.textContent !== value) {
+          element.textContent = value;
+          // Añadir clase para animación de cambio
+          element.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            element.style.transform = 'scale(1)';
+          }, 150);
+        }
+      });
+
+    } catch (error) {
+      debugLog('Error updating countdown:', error);
+    }
+  }
+
+  // Función para iniciar el intervalo
+  function startInterval() {
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+    }
+    
+    // Usar intervalos más largos en móviles para ahorrar batería
+    const intervalTime = isMobileDevice() ? 1000 : 1000;
+    debugLog('Starting interval with time:', intervalTime);
+    countdownInterval = setInterval(updateCountdown, intervalTime);
+  }
+
+  // Función para inicializar el contador
+  function initCountdown() {
+    debugLog('Initializing countdown, retry count:', retryCount);
+    
+    // Esperar a que el DOM esté completamente cargado
+    const elements = getCountdownElements();
+    if (!elements || !elements.days) {
+      debugLog('Elements not ready, scheduling retry');
+      if (retryCount < maxRetries) {
+        retryCount++;
+        setTimeout(() => initCountdown(), 100);
+      } else {
+        debugLog('Max retries reached, giving up');
+      }
+      return;
+    }
+
+    debugLog('Elements ready, starting countdown');
+    
+    // Marcar contenedor como cargando
+    const container = document.querySelector(`[data-countdown-id="${uniqueId}"]`);
+    if (container) {
+      container.setAttribute('data-loading', 'false');
+    }
+
+    // Realizar primera actualización
+    updateCountdown();
+    
+    // Iniciar el intervalo
+    startInterval();
+  }
+
+  // Manejar cambios de visibilidad específicamente para móviles
+  function handleVisibilityChange() {
+    let wasVisible = isVisible;
+    
+    if (typeof document.hidden !== 'undefined') {
+      isVisible = !document.hidden;
+    } else if (typeof document.webkitHidden !== 'undefined') {
+      isVisible = !document.webkitHidden;
+    } else if (typeof document.mozHidden !== 'undefined') {
+      isVisible = !document.mozHidden;
+    }
+
+    debugLog('Visibility changed:', { wasVisible, isVisible });
+
+    if (isVisible && !wasVisible) {
+      // Reanudar cuando la página vuelve a ser visible
+      debugLog('Page became visible, resuming countdown');
+      updateCountdown();
+      startInterval();
+    } else if (!isVisible && wasVisible) {
+      // Pausar cuando la página no está visible para ahorrar recursos
+      debugLog('Page became hidden, pausing countdown');
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
+    }
+  }
+
+  // Manejar cambios de orientación en móviles
+  function handleOrientationChange() {
+    debugLog('Orientation changed');
+    setTimeout(() => {
+      updateCountdown();
+    }, 300);
+  }
+
+  // Función para manejar el foco/desenfoque de la ventana
+  function handleFocus() {
+    debugLog('Window focused');
+    if (!countdownInterval) {
+      updateCountdown();
+      startInterval();
+    }
+  }
+
+  function handleBlur() {
+    debugLog('Window blurred');
+    if (isMobileDevice() && countdownInterval) {
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+    }
+  }
+
+  // Inicializar cuando el documento esté listo
+  function initialize() {
+    debugLog('Starting initialization');
+    
+    // Marcar contenedor como cargando
+    const container = document.querySelector(`[data-countdown-id="${uniqueId}"]`);
+    if (container) {
+      container.setAttribute('data-loading', 'true');
+    }
+
+    // Agregar eventos de visibilidad con compatibilidad para diferentes navegadores
+    try {
+      if (typeof document.addEventListener !== 'undefined') {
+        document.addEventListener('visibilitychange', handleVisibilityChange, false);
+        document.addEventListener('webkitvisibilitychange', handleVisibilityChange, false);
+        document.addEventListener('mozvisibilitychange', handleVisibilityChange, false);
+      }
+
+      // Agregar evento de cambio de orientación para móviles
+      if (typeof window.orientation !== 'undefined') {
+        window.addEventListener('orientationchange', handleOrientationChange, false);
+      }
+
+      // Manejar pausa/reactivación en dispositivos móviles
+      window.addEventListener('focus', handleFocus, false);
+      window.addEventListener('blur', handleBlur, false);
+      
+      // Para algunos navegadores móviles
+      window.addEventListener('pageshow', handleFocus, false);
+      window.addEventListener('pagehide', handleBlur, false);
+
+      debugLog('Event listeners added successfully');
+    } catch (error) {
+      debugLog('Error adding event listeners:', error);
+    }
+
+    // Inicializar el contador
+    initCountdown();
+  }
+
+  // Función para limpiar recursos
+  function cleanup() {
+    debugLog('Cleaning up countdown');
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+    }
+  }
+
+  // Verificar si el DOM ya está cargado
+  if (document.readyState === 'loading') {
+    debugLog('DOM loading, waiting for DOMContentLoaded');
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    // DOM ya está cargado, ejecutar inmediatamente
+    debugLog('DOM ready, initializing immediately');
+    setTimeout(initialize, 50);
+  }
+
+  // Limpiar intervalos cuando la página se descarga
+  window.addEventListener('beforeunload', cleanup);
+  window.addEventListener('unload', cleanup);
 </script>
+
+<style>
+  .countdown-container {
+    /* Asegurar que el contador sea responsive */
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .countdown-item {
+    /* Evitar que los elementos se contraigan demasiado */
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Mejorar la legibilidad en dispositivos móviles */
+  @media (max-width: 768px) {
+    .countdown-container .grid {
+      gap: 0.5rem;
+    }
+    
+    .countdown-item > div {
+      padding: 0.75rem 0.5rem;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .countdown-item span:first-child {
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .countdown-item span:last-child {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  /* Mejorar la animación y transiciones */
+  .countdown-item > div {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Efecto visual cuando los números cambian */
+  .countdown-item span:first-child {
+    transition: color 0.2s ease-in-out;
+  }
+
+  /* Estado de carga */
+  .countdown-container[data-loading="true"] .countdown-item span:first-child {
+    opacity: 0.5;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  /* Asegurar que el texto sea siempre legible */
+  .countdown-item span {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+</style>
