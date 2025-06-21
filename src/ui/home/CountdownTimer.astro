@@ -5,7 +5,8 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <div class="countdown-container" data-countdown-id={uniqueId} data-loading="true">
-  <div class="grid grid-cols-4 gap-2 md:gap-3 text-center">
+  <!-- Vista del contador normal -->
+  <div class={`countdown-view-${uniqueId} grid grid-cols-4 gap-2 md:gap-3 text-center`}>
     <div class="countdown-item">
       <div
         class="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl shadow-md p-2 md:p-3 border border-blue-100/50 transform transition-all hover:scale-105 hover:shadow-lg hover:border-blue-200 duration-300"
@@ -51,6 +52,23 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
       </div>
     </div>
   </div>
+
+  <!-- Vista "Ya en curso" -->
+  <div class={`event-started-${uniqueId} hidden`}>
+    <div class="bg-gradient-to-br from-green-50 via-white to-green-50 rounded-xl shadow-lg p-6 md:p-8 border border-green-200/50 transform transition-all hover:scale-105 hover:shadow-xl hover:border-green-300 duration-300 text-center">
+      <div class="flex items-center justify-center space-x-2 mb-2">
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-green-600 to-green-700">
+          ¡Ya en curso!
+        </span>
+      </div>
+      <p class="text-sm md:text-base font-medium text-gray-600">
+        El evento ha comenzado
+      </p>
+    </div>
+  </div>
 </div>
 
 <script define:vars={{ targetDate, uniqueId }}>
@@ -75,7 +93,6 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
     debugLog('Is mobile device:', isMobile);
     return isMobile;
   }
-
   // Función para obtener elementos del DOM usando clases únicas
   function getCountdownElements() {
     const container = document.querySelector(`[data-countdown-id="${uniqueId}"]`);
@@ -88,14 +105,18 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
       days: container.querySelector(`.countdown-days-${uniqueId}`),
       hours: container.querySelector(`.countdown-hours-${uniqueId}`),
       minutes: container.querySelector(`.countdown-minutes-${uniqueId}`),
-      seconds: container.querySelector(`.countdown-seconds-${uniqueId}`)
+      seconds: container.querySelector(`.countdown-seconds-${uniqueId}`),
+      countdownView: container.querySelector(`.countdown-view-${uniqueId}`),
+      eventStartedView: container.querySelector(`.event-started-${uniqueId}`)
     };
 
     debugLog('Elements found:', {
       days: !!elements.days,
       hours: !!elements.hours,
       minutes: !!elements.minutes,
-      seconds: !!elements.seconds
+      seconds: !!elements.seconds,
+      countdownView: !!elements.countdownView,
+      eventStartedView: !!elements.eventStartedView
     });
 
     return elements;
@@ -123,21 +144,29 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
         targetTime,
         now,
         difference
-      });
-
-      // Si ya pasó el evento, mostrar ceros y detener el contador
+      });      // Si ya pasó el evento, mostrar "Ya en curso" y detener el contador
       if (difference < 0) {
-        debugLog('Event has passed, showing zeros');
-        elements.days.textContent = '00';
-        elements.hours.textContent = '00';
-        elements.minutes.textContent = '00';
-        elements.seconds.textContent = '00';
+        debugLog('Event has passed, showing "Ya en curso"');
+        
+        // Ocultar la vista del contador y mostrar la vista "Ya en curso"
+        if (elements.countdownView && elements.eventStartedView) {
+          elements.countdownView.style.display = 'none';
+          elements.eventStartedView.style.display = 'block';
+          elements.eventStartedView.classList.remove('hidden');
+        }
         
         if (countdownInterval) {
           clearInterval(countdownInterval);
           countdownInterval = null;
         }
         return;
+      }
+
+      // Asegurarse de que la vista correcta esté visible
+      if (elements.countdownView && elements.eventStartedView) {
+        elements.countdownView.style.display = 'grid';
+        elements.eventStartedView.style.display = 'none';
+        elements.eventStartedView.classList.add('hidden');
       }
 
       // Calcular días, horas, minutos y segundos
@@ -348,6 +377,22 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
     flex: 1;
   }
 
+  /* Estilos para la vista "Ya en curso" */
+  .event-started-view {
+    animation: fadeInScale 0.6s ease-out;
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   /* Mejorar la legibilidad en dispositivos móviles */
   @media (max-width: 768px) {
     .countdown-container .grid {
@@ -370,6 +415,20 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
     .countdown-item span:last-child {
       font-size: 0.75rem;
       margin-top: 0.25rem;
+    }
+
+    /* Ajustes para el mensaje "Ya en curso" en móviles */
+    .event-started-view > div {
+      padding: 1.5rem 1rem;
+    }
+    
+    .event-started-view span {
+      font-size: 1.75rem !important;
+    }
+    
+    .event-started-view svg {
+      width: 1.5rem !important;
+      height: 1.5rem !important;
     }
   }
 
@@ -404,5 +463,25 @@ const uniqueId = `countdown-${Math.random().toString(36).substr(2, 9)}`;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+  }
+
+  /* Efecto hover para la vista "Ya en curso" */
+  .event-started-view > div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Animación sutil del ícono de check */
+  .event-started-view svg {
+    animation: checkPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes checkPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
 </style>
